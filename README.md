@@ -28,3 +28,55 @@ Dane o grach będą pobierane z RAWG API.
 - **Baza danych:** PostgreSQL
 - **API:** RAWG Video Games Database
 - **Dodatkowo:** React Router, Axios, TanStack Query, SQLAlchemy
+
+## Uruchomienie
+
+### Baza danych
+
+W katalogu głównym:
+
+```bash
+docker compose up -d
+```
+
+### Backend
+
+```bash
+cd backend
+python -m venv .venv
+```
+
+Windows:
+
+```bash
+py -m venv .venv
+.venv\Scripts\activate
+```
+
+macOS / Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+Następnie:
+
+```bash
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+API: http://localhost:8000  
+Dokumentacja: http://localhost:8000/docs
+
+Skopiuj `backend/.env.example` do `backend/.env`, jeśli chcesz zmienić adres bazy albo CORS.
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Aplikacja: http://localhost:5173
