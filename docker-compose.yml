@@ -1,15 +1,45 @@
 services:
   db:
-    image: postgres:16
+    image: mongo:7
     container_name: playdex-db
     environment:
-      POSTGRES_USER: playdex
-      POSTGRES_PASSWORD: playdex
-      POSTGRES_DB: playdex
+      MONGO_INITDB_ROOT_USERNAME: playdex
+      MONGO_INITDB_ROOT_PASSWORD: playdex
+      MONGO_INITDB_DATABASE: playdex
     ports:
-      - "5432:5432"
+      - "27017:27017"
     volumes:
-      - playdex_pgdata:/var/lib/postgresql/data
+      - playdex_mongodata:/data/db
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: playdex-backend
+    ports:
+      - "8000:8000"
+      - "5678:5678"
+    environment:
+      DATABASE_URL: mongodb://playdex:playdex@db:27017/playdex?authSource=admin
+      CORS_ORIGINS: http://localhost:5173
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: playdex-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_PROXY_TARGET: http://backend:8000
+      CHOKIDAR_USEPOLLING: "true"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
 
 volumes:
-  playdex_pgdata:
+  playdex_mongodata:

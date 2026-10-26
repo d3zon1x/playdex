@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 
 class Settings(BaseSettings):
     database_url: str = (
-        "postgresql+psycopg://playdex:playdex@localhost:5432/playdex"
+        "mongodb://playdex:playdex@localhost:27017/playdex?authSource=admin"
     )
     cors_origins: str = "http://localhost:5173"
 
