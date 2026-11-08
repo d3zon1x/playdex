@@ -25,9 +25,9 @@ Dane o grach będą pobierane z RAWG API.
 
 - **Frontend:** React, TypeScript, Vite, Tailwind CSS
 - **Backend:** Python, FastAPI
-- **Baza danych:** PostgreSQL
+- **Baza danych:** MongoDB
 - **API:** RAWG Video Games Database
-- **Dodatkowo:** React Router, Axios, TanStack Query, SQLAlchemy
+- **Dodatkowo:** React Router, Axios, TanStack Query
 
 ## Uruchomienie
 
@@ -36,8 +36,10 @@ Dane o grach będą pobierane z RAWG API.
 W katalogu głównym:
 
 ```bash
-docker compose up -d
+docker compose up -d db
 ```
+
+MongoDB: `mongodb://playdex:playdex@localhost:27017/playdex?authSource=admin`
 
 ### Backend
 
@@ -69,7 +71,7 @@ uvicorn app.main:app --reload
 API: http://localhost:8000  
 Dokumentacja: http://localhost:8000/docs
 
-Skopiuj `backend/.env.example` do `backend/.env`, jeśli chcesz zmienić adres bazy albo CORS.
+Skopiuj `backend/.env.example` do `backend/.env` i ustaw `RAWG_API_KEY` (klucz z [rawg.io/apidocs](https://rawg.io/apidocs)). Bez klucza wyszukiwanie gier nie zadziała. Przy Docker Compose ten sam klucz można podać jako zmienną `RAWG_API_KEY` albo w pliku `.env` w katalogu głównym.
 
 ### Frontend
 

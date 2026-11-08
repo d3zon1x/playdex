@@ -6,10 +6,9 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 
 
 class Settings(BaseSettings):
-    database_url: str = (
-        "mongodb://playdex:playdex@localhost:27017/playdex?authSource=admin"
-    )
+    database_url: str = "mongodb://playdex:playdex@localhost:27017/playdex?authSource=admin"
     cors_origins: str = "http://localhost:5173"
+    rawg_api_key: str = ""
 
     model_config = SettingsConfigDict(
         env_file=BASE_DIR / ".env",

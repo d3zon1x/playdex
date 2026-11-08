@@ -52,6 +52,8 @@ docker compose up
 - Swagger: http://localhost:8000/docs
 - MongoDB: `mongodb://playdex:playdex@localhost:27017/playdex?authSource=admin`
 
+The backend reads `RAWG_API_KEY` from the environment. For Compose, export it in the shell or put it in a `.env` file in the repo root. For a local uvicorn process, set it in `backend/.env`.
+
 Source is mounted via volumes — host changes are picked up without rebuilding (`--reload` on the backend, HMR on the frontend).
 
 ## Debug the backend (debugpy)

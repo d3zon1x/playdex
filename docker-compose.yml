@@ -10,6 +10,25 @@ services:
       - "27017:27017"
     volumes:
       - playdex_mongodata:/data/db
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mongosh",
+          "--username",
+          "playdex",
+          "--password",
+          "playdex",
+          "--authenticationDatabase",
+          "admin",
+          "--quiet",
+          "--eval",
+          "db.runCommand({ ping: 1 }).ok",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
 
   backend:
     build:
@@ -22,10 +41,12 @@ services:
     environment:
       DATABASE_URL: mongodb://playdex:playdex@db:27017/playdex?authSource=admin
       CORS_ORIGINS: http://localhost:5173
+      RAWG_API_KEY: ${RAWG_API_KEY:-}
     volumes:
       - ./backend:/app
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   frontend:
     build:
