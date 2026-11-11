@@ -4,15 +4,32 @@ Aplikacja internetowa do odkrywania gier komputerowych i zarządzania własną b
 
 ## O projekcie
 
-Playdex to platforma umożliwiająca wyszukiwanie gier, przeglądanie ich opisów i ocen oraz filtrowanie według gatunku, platformy i daty wydania.
+**Dla kogo i po co:** Playdex jest dla graczy, którzy chcą w jednym miejscu znaleźć nowe gry i śledzić, w co grają, w co chcą zagrać i co już ukończyli — zamiast trzymać listy w notatkach i szukać informacji o grach na kilku stronach.
 
-Użytkownicy będą mogli tworzyć własne kolekcje gier, oznaczać je jako „Do zagrania”, „W trakcie” lub „Ukończone” oraz wystawiać oceny.
+Dane o grach pochodzą z [RAWG API](https://rawg.io/apidocs) (przez backend, klucz nie trafia do przeglądarki).
 
-Aplikacja będzie również oferować filtrowanie gier na podstawie wieku użytkownika (PEGI) oraz panel administratora umożliwiający dodawanie, edytowanie i usuwanie gier.
+## Funkcje
 
-**Opcjonalnie:** system osiągnięć (achievementów) z poszczególnych gier.
+Każda funkcja jest opisana w osobnym Issue według wzoru *Co robi użytkownik / Widok / Dane / Najtrudniejsze / Gotowe, gdy* i ma jednego właściciela.
 
-Dane o grach będą pobierane z RAWG API.
+| Funkcja | Issue | Właściciel | Status |
+|---|---|---|---|
+| Wyszukiwarka gier | [#4](https://github.com/d3zon1x/playdex/issues/4) | @d3zon1x | ✅ zrobione |
+| Filtry: gatunek, platforma, rok wydania, sortowanie | [#5](https://github.com/d3zon1x/playdex/issues/5) | @d3zon1x | ✅ zrobione |
+| Strona szczegółów gry (`/games/:id`) | [#6](https://github.com/d3zon1x/playdex/issues/6) | @d3zon1x | ✅ zrobione |
+| Konta użytkowników (rejestracja, logowanie, wiek w profilu) | [#7](https://github.com/d3zon1x/playdex/issues/7) | @d3zon1x | ⏳ M2 |
+| Wyróżnione gry (panel administratora) | [#8](https://github.com/d3zon1x/playdex/issues/8) | @d3zon1x | ⏳ M2/M3 |
+| Biblioteka ze statusami „Do zagrania” / „W trakcie” / „Ukończone” | [#9](https://github.com/d3zon1x/playdex/issues/9) | @stilist1 | 🔧 w trakcie |
+| Własne oceny gier (1–5) | [#10](https://github.com/d3zon1x/playdex/issues/10) | @stilist1 | 🔧 w trakcie |
+| Filtr wieku (ESRB → wiek) | [#11](https://github.com/d3zon1x/playdex/issues/11) | @stilist1 | ⏳ M2 |
+| Osiągnięcia *(opcjonalnie)* | [#12](https://github.com/d3zon1x/playdex/issues/12) | @stilist1 | ⏳ M3 |
+
+### Decyzje dotyczące zakresu
+
+- **Wiek / PEGI:** RAWG zwraca tylko klasyfikację ESRB (bez PEGI). Mapujemy ESRB na minimalny wiek (E → 0, E10+ → 10, T → 13, M → 17, AO → 18) i porównujemy z wiekiem z profilu użytkownika. Nie przechodzimy na IGDB.
+- **Panel administratora:** katalog pochodzi z RAWG, więc administrator nie dodaje ani nie edytuje gier. Zamiast tego wybiera gry wyróżnione na stronie głównej.
+- **Konta użytkowników:** osobna funkcja — biblioteka, oceny i filtr wieku po jej wdrożeniu będą przypisane do zalogowanego użytkownika.
+- **Osiągnięcia:** opcjonalne, na koniec projektu (dane RAWG bywają niepełne).
 
 ## Zespół
 
