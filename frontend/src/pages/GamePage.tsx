@@ -1,23 +1,25 @@
-import { useQuery } from '@tanstack/react-query'
 import { Link, useParams } from 'react-router-dom'
-import { apiErrorMessage } from '../lib/api'
-import { fetchGame } from '../lib/games'
+import { ErrorState } from '../components/ErrorState'
+import { NotFound } from '../components/NotFound'
+import { GameDetailSkeleton } from '../components/Skeleton'
+import { useGame } from '../hooks/useGames'
 import { useLibraryMembership } from '../hooks/useLibraryMembership'
+import { apiErrorMessage, isNotFoundError } from '../lib/api'
+
+const gameNotFound = {
+  title: 'Nie znaleziono gry',
+  message: 'Nie ma takiej gry w katalogu. Sprawdź adres albo wyszukaj ją na stronie głównej.',
+}
 
 export function GamePage() {
   const params = useParams()
   const rawgId = Number(params.id)
   const valid = Number.isInteger(rawgId) && rawgId > 0
   const membership = useLibraryMembership()
-  const game = useQuery({
-    queryKey: ['game', rawgId],
-    queryFn: () => fetchGame(rawgId),
-    enabled: valid,
-    retry: false,
-  })
+  const game = useGame(rawgId, valid)
 
-  if (!valid) {
-    return <p className="text-slate-300">Nieprawidłowy identyfikator gry.</p>
+  if (!valid || (game.isError && isNotFoundError(game.error))) {
+    return <NotFound {...gameNotFound} />
   }
 
   const inLibrary = membership.ids.has(rawgId)
@@ -29,9 +31,13 @@ export function GamePage() {
         Wróć do katalogu
       </Link>
 
-      {game.isPending && <p className="mt-6 text-slate-300">Ładowanie gry…</p>}
+      {game.isPending && <GameDetailSkeleton />}
       {game.isError && (
-        <p className="mt-6 text-slate-300">{apiErrorMessage(game.error, 'Nie udało się pobrać gry.')}</p>
+        <ErrorState
+          message={apiErrorMessage(game.error, 'Nie udało się pobrać gry.')}
+          retrying={game.isFetching}
+          onRetry={() => void game.refetch()}
+        />
       )}
       {game.isSuccess && (
         <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,22rem)_1fr]">

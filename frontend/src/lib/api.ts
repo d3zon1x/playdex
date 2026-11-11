@@ -13,3 +13,7 @@ export function apiErrorMessage(error: unknown, fallback: string) {
   }
   return fallback
 }
+
+export function isNotFoundError(error: unknown) {
+  return axios.isAxiosError(error) && error.response?.status === 404
+}

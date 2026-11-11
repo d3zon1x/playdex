@@ -3,8 +3,8 @@ import re
 from fastapi import APIRouter, HTTPException, Query
 
 from app.api.deps import MongoDb
-from app.schemas.game import GameDetail, GameSearchResult
-from app.services.catalog import detail_from_document, summary_from_rawg, upsert_game
+from app.schemas.game import FilterOption, GameDetail, GameSearchResult
+from app.services.catalog import detail_from_document, summary_from_rawg, tags_from_rawg, upsert_game
 from app.services.rawg import RawgNotConfiguredError, RawgRequestError, raise_for_rawg, rawg_client
 
 router = APIRouter(tags=["games"])
@@ -32,6 +32,9 @@ def list_games(
     page_size: int = Query(default=12, ge=1, le=40),
     genres: str | None = Query(default=None, description="Comma-separated RAWG genre ids"),
     platforms: str | None = Query(default=None, description="Comma-separated RAWG platform ids"),
+    parent_platforms: str | None = Query(
+        default=None, description="Comma-separated RAWG parent platform ids (PC, PlayStation…)"
+    ),
     dates: str | None = Query(default=None, description="Release window, YYYY-MM-DD,YYYY-MM-DD"),
     ordering: str | None = Query(default=None),
 ) -> GameSearchResult:
@@ -39,6 +42,7 @@ def list_games(
     query = search.strip() if search else None
     genre_ids = _id_list(genres, "genres")
     platform_ids = _id_list(platforms, "platforms")
+    parent_platform_ids = _id_list(parent_platforms, "parent_platforms")
     if dates and not _DATES.fullmatch(dates):
         raise HTTPException(status_code=422, detail="Parametr dates musi mieć format YYYY-MM-DD,YYYY-MM-DD")
     if ordering and ordering not in _ORDERING:
@@ -51,6 +55,7 @@ def list_games(
             page_size=page_size,
             genres=genre_ids,
             platforms=platform_ids,
+            parent_platforms=parent_platform_ids,
             dates=dates,
             ordering=ordering,
         )
@@ -70,6 +75,27 @@ def list_games(
         page_size=page_size,
         results=results,
     )
+
+
+@router.get("/genres", response_model=list[FilterOption])
+def list_genres() -> list[FilterOption]:
+    """Genres for the search filters."""
+    try:
+        rows = rawg_client.list_genres()
+    except (RawgNotConfiguredError, RawgRequestError) as exc:
+        raise_for_rawg(exc)
+    options = [FilterOption.model_validate(tag) for tag in tags_from_rawg(rows)]
+    return sorted(options, key=lambda option: option.name.casefold())
+
+
+@router.get("/platforms", response_model=list[FilterOption])
+def list_platforms() -> list[FilterOption]:
+    """Platform families for the search filters, in RAWG's order (most popular first)."""
+    try:
+        rows = rawg_client.list_parent_platforms()
+    except (RawgNotConfiguredError, RawgRequestError) as exc:
+        raise_for_rawg(exc)
+    return [FilterOption.model_validate(tag) for tag in tags_from_rawg(rows)]
 
 
 @router.get("/games/{rawg_id}", response_model=GameDetail)

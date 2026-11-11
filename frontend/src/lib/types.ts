@@ -8,6 +8,25 @@ export type Platform = {
   name: string
 }
 
+export type FilterOption = {
+  id: number
+  name: string
+  slug: string
+}
+
+export type GameOrdering = '' | '-added' | '-rating' | '-metacritic' | '-released' | 'name'
+
+/** Search state kept in the URL on the "Odkrywaj" page. Empty string / null = not set. */
+export type GameFilters = {
+  search: string
+  genre: number | null
+  platform: number | null
+  yearFrom: number | null
+  yearTo: number | null
+  ordering: GameOrdering
+  page: number
+}
+
 export type GameSummary = {
   id: number
   name: string

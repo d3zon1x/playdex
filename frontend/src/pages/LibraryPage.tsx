@@ -1,6 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ErrorState } from '../components/ErrorState'
+import { LibraryListSkeleton } from '../components/Skeleton'
 import { apiErrorMessage } from '../lib/api'
 import { fetchLibrary, removeFromLibrary, updateLibraryEntry } from '../lib/games'
 import {
@@ -63,9 +65,13 @@ export function LibraryPage() {
       )}
 
       <div className="mt-8">
-        {library.isPending && <p className="text-slate-300">Ładowanie biblioteki…</p>}
+        {library.isPending && <LibraryListSkeleton />}
         {library.isError && (
-          <p className="text-slate-300">Nie udało się pobrać gier. Uruchom backend i odśwież stronę.</p>
+          <ErrorState
+            message={apiErrorMessage(library.error, 'Nie udało się pobrać biblioteki.')}
+            retrying={library.isFetching}
+            onRetry={() => void library.refetch()}
+          />
         )}
         {library.isSuccess && library.data.length === 0 && (
           <p className="text-slate-300">

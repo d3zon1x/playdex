@@ -31,6 +31,19 @@ Dane o grach będą pobierane z RAWG API.
 
 ## Uruchomienie
 
+### Szybki start (Makefile)
+
+Wymagany Docker. W katalogu głównym:
+
+```bash
+make up      # db + backend + frontend w Dockerze
+make dev     # db w Dockerze, backend i frontend lokalnie (hot reload)
+make down    # zatrzymanie kontenerów
+make         # lista wszystkich komend
+```
+
+Przy pierwszym uruchomieniu `make` utworzy `backend/.env` z `backend/.env.example` — wpisz tam `RAWG_API_KEY`.
+
 ### Baza danych
 
 W katalogu głównym:
