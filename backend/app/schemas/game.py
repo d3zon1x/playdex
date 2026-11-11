@@ -17,6 +17,12 @@ class PlatformRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
 
+class FilterOption(BaseModel):
+    id: int
+    name: str
+    slug: str
+
+
 class GameRead(BaseModel):
     id: int
     name: str

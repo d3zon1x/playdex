@@ -1,3 +1,4 @@
+import time
 from typing import Any, NoReturn
 
 import httpx
@@ -5,7 +6,8 @@ from fastapi import HTTPException
 
 from app.core.config import settings
 
-RAWG_BASE_URL = "https://api.rawg.io/api"
+# Gatunki i platformy zmieniają się rzadko, więc trzymamy je w pamięci.
+_REFERENCE_TTL_SECONDS = 24 * 60 * 60
 
 
 class RawgNotConfiguredError(Exception):
@@ -21,6 +23,7 @@ class RawgRequestError(Exception):
 class RawgClient:
     def __init__(self) -> None:
         self._client = httpx.Client(timeout=20.0)
+        self._cache: dict[str, tuple[float, list[dict[str, Any]]]] = {}
 
     def search_games(
         self,
@@ -30,6 +33,7 @@ class RawgClient:
         page_size: int,
         genres: str | None = None,
         platforms: str | None = None,
+        parent_platforms: str | None = None,
         dates: str | None = None,
         ordering: str | None = None,
     ) -> dict[str, Any]:
@@ -40,6 +44,8 @@ class RawgClient:
             params["genres"] = genres
         if platforms:
             params["platforms"] = platforms
+        if parent_platforms:
+            params["parent_platforms"] = parent_platforms
         if dates:
             params["dates"] = dates
         if ordering:
@@ -49,12 +55,28 @@ class RawgClient:
     def get_game(self, rawg_id: int) -> dict[str, Any]:
         return self._get(f"/games/{rawg_id}", {})
 
+    def list_genres(self) -> list[dict[str, Any]]:
+        return self._cached_results("/genres")
+
+    def list_parent_platforms(self) -> list[dict[str, Any]]:
+        """Platform families (PC, PlayStation, Xbox…), not every console generation."""
+        return self._cached_results("/platforms/lists/parents")
+
+    def _cached_results(self, path: str) -> list[dict[str, Any]]:
+        cached = self._cache.get(path)
+        if cached and time.monotonic() - cached[0] < _REFERENCE_TTL_SECONDS:
+            return cached[1]
+        results = self._get(path, {"page_size": 40}).get("results")
+        rows = [row for row in results if isinstance(row, dict)] if isinstance(results, list) else []
+        self._cache[path] = (time.monotonic(), rows)
+        return rows
+
     def _get(self, path: str, params: dict[str, str | int]) -> dict[str, Any]:
         api_key = settings.rawg_api_key.strip()
         if not api_key:
             raise RawgNotConfiguredError
         try:
-            response = self._client.get(f"{RAWG_BASE_URL}{path}", params={**params, "key": api_key})
+            response = self._client.get(f"{settings.rawg_base_url.rstrip('/')}{path}", params={**params, "key": api_key})
             response.raise_for_status()
         except httpx.HTTPStatusError as exc:
             raise RawgRequestError(exc.response.status_code) from exc

@@ -47,8 +47,8 @@ def game_document(payload: dict, description: str | None) -> dict:
         "metacritic": _as_int(payload.get("metacritic")),
         "esrb_rating": _as_str(esrb.get("name")) if isinstance(esrb, dict) else None,
         "description": description.strip() if isinstance(description, str) and description.strip() else None,
-        "genres": [_tag(row) for row in _named_rows(payload.get("genres"))],
-        "platforms": [_tag(row) for row in _named_rows(raw_platforms(payload))],
+        "genres": tags_from_rawg(payload.get("genres")),
+        "platforms": tags_from_rawg(raw_platforms(payload)),
     }
 
 
@@ -67,6 +67,11 @@ def public_game(document: dict) -> dict:
         "platforms": document.get("platforms") or [],
         "description": document.get("description"),
     }
+
+
+def tags_from_rawg(value: object) -> list[dict]:
+    """Normalize a RAWG list of genres/platforms to `{id, name, slug}` rows."""
+    return [_tag(row) for row in _named_rows(value)]
 
 
 def raw_platforms(payload: dict) -> list[dict]:

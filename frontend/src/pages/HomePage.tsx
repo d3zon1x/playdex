@@ -1,19 +1,38 @@
-import { keepPreviousData, useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
+import { ErrorState } from '../components/ErrorState'
 import { GameCard } from '../components/GameCard'
+import { GameFilters } from '../components/GameFilters'
+import { GameGridSkeleton } from '../components/Skeleton'
+import { useDebouncedCallback } from '../hooks/useDebouncedCallback'
+import { useGameFilters } from '../hooks/useGameFilters'
+import { useGames } from '../hooks/useGames'
 import { useLibraryMembership } from '../hooks/useLibraryMembership'
 import { api, apiErrorMessage } from '../lib/api'
-import { searchGames } from '../lib/games'
+
+const SEARCH_DEBOUNCE_MS = 400
 
 type HealthResponse = {
   status: string
 }
 
 export function HomePage() {
-  const [draft, setDraft] = useState('')
-  const [search, setSearch] = useState('')
-  const [page, setPage] = useState(1)
+  const { filters, setFilters, clearFilters, resetAll, activeCount } = useGameFilters()
+  const { search, page } = filters
   const membership = useLibraryMembership()
+
+  // Tekst w polu wyszukiwania; do URL trafia dopiero po chwili bez pisania.
+  const [draft, setDraft] = useState(search)
+  const [syncedSearch, setSyncedSearch] = useState(search)
+  if (search !== syncedSearch) {
+    // URL zmienił się z zewnątrz (wstecz/dalej, „Wyczyść filtry”) — pokaż to w polu.
+    setSyncedSearch(search)
+    if (search !== draft.trim()) setDraft(search)
+  }
+  const debouncedSearch = useDebouncedCallback(
+    (value: string) => setFilters({ search: value }, { replace: true }),
+    SEARCH_DEBOUNCE_MS,
+  )
 
   const health = useQuery({
     queryKey: ['health'],
@@ -24,12 +43,7 @@ export function HomePage() {
     retry: false,
   })
 
-  const games = useQuery({
-    queryKey: ['games', search, page],
-    queryFn: () => searchGames(search, page),
-    placeholderData: keepPreviousData,
-    retry: false,
-  })
+  const games = useGames(filters)
 
   const statusLabel = health.isPending
     ? 'Sprawdzanie połączenia…'
@@ -40,6 +54,12 @@ export function HomePage() {
   const statusClass = health.isSuccess ? 'bg-emerald-400' : health.isError ? 'bg-rose-400' : 'bg-amber-300'
   const canGoBack = page > 1
   const canGoForward = games.data ? games.data.page * games.data.page_size < games.data.count : false
+  const totalPages = games.data ? Math.max(1, Math.ceil(games.data.count / games.data.page_size)) : null
+
+  const goToPage = (next: number) => {
+    setFilters({ page: next })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   return (
     <section>
@@ -60,8 +80,8 @@ export function HomePage() {
         className="mt-8 flex flex-col gap-3 sm:flex-row"
         onSubmit={(event) => {
           event.preventDefault()
-          setPage(1)
-          setSearch(draft.trim())
+          debouncedSearch.cancel()
+          setFilters({ search: draft.trim() })
         }}
       >
         <label className="sr-only" htmlFor="game-search">
@@ -70,7 +90,10 @@ export function HomePage() {
         <input
           id="game-search"
           value={draft}
-          onChange={(event) => setDraft(event.target.value)}
+          onChange={(event) => {
+            setDraft(event.target.value)
+            debouncedSearch.run(event.target.value.trim())
+          }}
           placeholder="Szukaj gry, np. Hades"
           className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-slate-100 outline-none placeholder:text-slate-500 focus:border-white/30"
         />
@@ -82,24 +105,54 @@ export function HomePage() {
         </button>
       </form>
 
+      <GameFilters filters={filters} activeCount={activeCount} onChange={setFilters} onClear={clearFilters} />
+
       <div className="mt-8">
-        <h2 className="text-xl font-medium">{search ? `Wyniki dla „${search}”` : 'Popularne gry'}</h2>
-        {games.isFetching && <p className="mt-2 text-sm text-slate-400">Szukanie…</p>}
+        <div className="flex flex-wrap items-baseline gap-x-3">
+          <h2 className="text-xl font-medium">
+            {search ? `Wyniki dla „${search}”` : activeCount > 0 ? 'Gry według filtrów' : 'Popularne gry'}
+          </h2>
+          {games.data && <span className="text-sm text-slate-400">{games.data.count.toLocaleString('pl-PL')} gier</span>}
+        </div>
+        {games.isPending && games.isFetching && <GameGridSkeleton />}
         {games.isError && (
-          <p className="mt-4 text-slate-300">
-            {apiErrorMessage(games.error, 'Nie udało się pobrać gier z katalogu.')}
-          </p>
+          <ErrorState
+            message={apiErrorMessage(games.error, 'Nie udało się pobrać gier z katalogu.')}
+            retrying={games.isFetching}
+            onRetry={() => void games.refetch()}
+          />
         )}
         {membership.add.isError && (
           <p className="mt-4 text-rose-300">
             {apiErrorMessage(membership.add.error, 'Nie udało się dodać gry do biblioteki.')}
           </p>
         )}
-        {games.isSuccess && games.data.results.length === 0 && (
-          <p className="mt-4 text-slate-300">Brak gier dla tego zapytania.</p>
+        {games.isSuccess && games.data.results.length === 0 && games.data.count > 0 && (
+          // np. stary link z ?page=5, a wyników jest teraz mniej
+          <p className="mt-4 text-slate-300">
+            Ta strona jest pusta.
+            <button type="button" onClick={() => goToPage(1)} className="ml-2 underline hover:text-white">
+              Wróć do pierwszej strony
+            </button>
+          </p>
+        )}
+        {games.isSuccess && games.data.count === 0 && (
+          <p className="mt-4 text-slate-300">
+            Brak gier dla tego zapytania.
+            {(activeCount > 0 || search) && (
+              <button type="button" onClick={resetAll} className="ml-2 underline hover:text-white">
+                Wyczyść wyszukiwanie i filtry
+              </button>
+            )}
+          </p>
         )}
         {games.data && games.data.results.length > 0 && (
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            aria-busy={games.isPlaceholderData}
+            className={`mt-4 grid gap-4 transition-opacity sm:grid-cols-2 lg:grid-cols-3 ${
+              games.isPlaceholderData ? 'opacity-50' : ''
+            }`}
+          >
             {games.data.results.map((game) => (
               <GameCard
                 key={game.id}
@@ -118,16 +171,19 @@ export function HomePage() {
               type="button"
               className="rounded-full border border-white/10 px-3 py-1.5 disabled:text-slate-600"
               disabled={!canGoBack}
-              onClick={() => setPage((current) => current - 1)}
+              onClick={() => goToPage(page - 1)}
             >
               Poprzednia
             </button>
-            <span className="text-slate-400">Strona {page}</span>
+            <span className="text-slate-400">
+              Strona {page}
+              {totalPages ? ` z ${totalPages.toLocaleString('pl-PL')}` : ''}
+            </span>
             <button
               type="button"
               className="rounded-full border border-white/10 px-3 py-1.5 disabled:text-slate-600"
               disabled={!canGoForward}
-              onClick={() => setPage((current) => current + 1)}
+              onClick={() => goToPage(page + 1)}
             >
               Następna
             </button>

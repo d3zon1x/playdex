@@ -42,6 +42,7 @@ services:
       DATABASE_URL: mongodb://playdex:playdex@db:27017/playdex?authSource=admin
       CORS_ORIGINS: http://localhost:5173
       RAWG_API_KEY: ${RAWG_API_KEY:-}
+      RAWG_BASE_URL: ${RAWG_BASE_URL:-https://api.rawg.io/api}
     volumes:
       - ./backend:/app
     depends_on:

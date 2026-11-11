@@ -1,15 +1,45 @@
 import { api } from './api'
-import type { GameDetail, GameList, LibraryEntry, LibraryStatus } from './types'
+import type {
+  FilterOption,
+  GameDetail,
+  GameFilters,
+  GameList,
+  LibraryEntry,
+  LibraryStatus,
+} from './types'
 
-export async function searchGames(search: string, page: number) {
-  const { data } = await api.get<GameList>('/api/games', {
-    params: {
-      page,
-      page_size: 12,
-      ...(search ? { search } : {}),
-    },
-  })
+export const GAMES_PAGE_SIZE = 12
+
+export async function searchGames(filters: GameFilters) {
+  const params: Record<string, string | number> = { page: filters.page, page_size: GAMES_PAGE_SIZE }
+  if (filters.search) params.search = filters.search
+  if (filters.genre != null) params.genres = filters.genre
+  if (filters.platform != null) params.parent_platforms = filters.platform
+  if (filters.ordering) params.ordering = filters.ordering
+  const dates = releaseWindow(filters.yearFrom, filters.yearTo)
+  if (dates) params.dates = dates
+
+  const { data } = await api.get<GameList>('/api/games', { params })
   return data
+}
+
+export async function fetchGenres() {
+  const { data } = await api.get<FilterOption[]>('/api/genres')
+  return data
+}
+
+export async function fetchPlatforms() {
+  const { data } = await api.get<FilterOption[]>('/api/platforms')
+  return data
+}
+
+/** RAWG wants `YYYY-MM-DD,YYYY-MM-DD`; an open end becomes a wide bound. */
+function releaseWindow(from: number | null, to: number | null) {
+  if (from == null && to == null) return null
+  let start = from ?? 1970
+  let end = to ?? new Date().getFullYear() + 5
+  if (start > end) [start, end] = [end, start]
+  return `${start}-01-01,${end}-12-31`
 }
 
 export async function fetchGame(id: number) {

@@ -3,6 +3,7 @@ import { Layout } from './components/Layout'
 import { GamePage } from './pages/GamePage'
 import { HomePage } from './pages/HomePage'
 import { LibraryPage } from './pages/LibraryPage'
+import { NotFoundPage } from './pages/NotFoundPage'
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
         <Route index element={<HomePage />} />
         <Route path="games/:id" element={<GamePage />} />
         <Route path="library" element={<LibraryPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   )
