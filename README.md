@@ -8,6 +8,11 @@ Aplikacja internetowa do odkrywania gier komputerowych i zarządzania własną b
 
 Dane o grach pochodzą z [RAWG API](https://rawg.io/apidocs) (przez backend, klucz nie trafia do przeglądarki).
 
+> [!WARNING]
+> **Tymczasowo: katalog na danych przykładowych.** RAWG API nie odpowiada od ok. 10.11.2026, dlatego backend domyślnie działa w trybie `RAWG_MOCK=true` i zamiast RAWG zwraca listę **50 popularnych gier** z pliku [`backend/app/data/mock_games.json`](backend/app/data/mock_games.json). Wyszukiwanie, filtry, sortowanie, szczegóły gry i biblioteka działają, ale tylko w obrębie tej listy; oceny, Metacritic i platformy są przybliżone, a gry nie mają okładek. Aplikacja pokazuje o tym baner na każdej stronie.
+>
+> Gdy RAWG wróci: ustaw `RAWG_MOCK=false` i `RAWG_API_KEY` w `backend/.env`, potem `make restart`. Gry przykładowe mają identyfikatory od `900001` (nie są to identyfikatory RAWG) — wpisy z nimi w bibliotece trzeba będzie usunąć.
+
 ## Funkcje
 
 Każda funkcja jest opisana w osobnym Issue według wzoru *Co robi użytkownik / Widok / Dane / Najtrudniejsze / Gotowe, gdy* i ma jednego właściciela.
@@ -59,7 +64,7 @@ make down    # zatrzymanie kontenerów
 make         # lista wszystkich komend
 ```
 
-Przy pierwszym uruchomieniu `make` utworzy `backend/.env` z `backend/.env.example` — wpisz tam `RAWG_API_KEY`.
+Przy pierwszym uruchomieniu `make` utworzy `backend/.env` z `backend/.env.example`. Na razie klucz RAWG nie jest potrzebny (tryb `RAWG_MOCK=true`, patrz uwaga wyżej); po powrocie RAWG wpisz tam `RAWG_API_KEY`.
 
 ### Baza danych
 
@@ -101,7 +106,7 @@ uvicorn app.main:app --reload
 API: http://localhost:8000  
 Dokumentacja: http://localhost:8000/docs
 
-Skopiuj `backend/.env.example` do `backend/.env` i ustaw `RAWG_API_KEY` (klucz z [rawg.io/apidocs](https://rawg.io/apidocs)). Bez klucza wyszukiwanie gier nie zadziała. Przy Docker Compose ten sam klucz można podać jako zmienną `RAWG_API_KEY` albo w pliku `.env` w katalogu głównym.
+Skopiuj `backend/.env.example` do `backend/.env` i ustaw `RAWG_API_KEY` (klucz z [rawg.io/apidocs](https://rawg.io/apidocs)). Bez klucza wyszukiwanie gier nie zadziała, chyba że włączony jest tryb danych przykładowych `RAWG_MOCK=true` (domyślnie włączony, dopóki RAWG nie działa). Przy Docker Compose ten sam klucz można podać jako zmienną `RAWG_API_KEY` albo w pliku `.env` w katalogu głównym.
 
 ### Frontend
 

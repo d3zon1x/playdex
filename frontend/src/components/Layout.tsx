@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom'
+import { MockCatalogBanner } from './MockCatalogBanner'
 
 function linkClass({ isActive }: { isActive: boolean }) {
   return isActive ? 'text-white' : 'text-slate-400 hover:text-slate-200'
@@ -22,6 +23,7 @@ export function Layout() {
           </nav>
         </div>
       </header>
+      <MockCatalogBanner />
       <main className="mx-auto max-w-6xl px-6 py-10">
         <Outlet />
       </main>

@@ -89,7 +89,15 @@ class RawgClient:
         return data
 
 
-rawg_client = RawgClient()
+def _make_client() -> RawgClient:
+    if settings.rawg_mock:
+        from app.services.rawg_mock import MockRawgClient
+
+        return MockRawgClient()  # type: ignore[return-value]  # same interface as RawgClient
+    return RawgClient()
+
+
+rawg_client = _make_client()
 
 
 def raise_for_rawg(exc: Exception) -> NoReturn:

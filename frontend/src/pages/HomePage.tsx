@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import { ErrorState } from '../components/ErrorState'
 import { GameCard } from '../components/GameCard'
@@ -7,14 +6,11 @@ import { GameGridSkeleton } from '../components/Skeleton'
 import { useDebouncedCallback } from '../hooks/useDebouncedCallback'
 import { useGameFilters } from '../hooks/useGameFilters'
 import { useGames } from '../hooks/useGames'
+import { useHealth } from '../hooks/useHealth'
 import { useLibraryMembership } from '../hooks/useLibraryMembership'
-import { api, apiErrorMessage } from '../lib/api'
+import { apiErrorMessage } from '../lib/api'
 
 const SEARCH_DEBOUNCE_MS = 400
-
-type HealthResponse = {
-  status: string
-}
 
 export function HomePage() {
   const { filters, setFilters, clearFilters, resetAll, activeCount } = useGameFilters()
@@ -34,14 +30,7 @@ export function HomePage() {
     SEARCH_DEBOUNCE_MS,
   )
 
-  const health = useQuery({
-    queryKey: ['health'],
-    queryFn: async () => {
-      const { data } = await api.get<HealthResponse>('/api/health')
-      return data
-    },
-    retry: false,
-  })
+  const health = useHealth()
 
   const games = useGames(filters)
 

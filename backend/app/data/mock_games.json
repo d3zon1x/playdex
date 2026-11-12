@@ -1,0 +1,1193 @@
+{
+ "_comment": "Tymczasowe dane przykładowe — RAWG API nie odpowiada od ok. 10.11.2026. Wartości (oceny, Metacritic, platformy) są przybliżone. Identyfikatory 900001+ nie są identyfikatorami RAWG.",
+ "games": [
+  {
+   "id": 900001,
+   "name": "Grand Theft Auto V",
+   "slug": "grand-theft-auto-v",
+   "released": "2013-09-17",
+   "metacritic": 92,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    3
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    16,
+    186,
+    1,
+    14
+   ],
+   "rating": 4.47,
+   "ratings_count": 6666,
+   "added": 20000,
+   "description": "Trzech przestępców planuje serię skoków w fikcyjnym Los Santos. Otwarty świat, misje fabularne i tryb online."
+  },
+  {
+   "id": 900002,
+   "name": "The Witcher 3: Wild Hunt",
+   "slug": "the-witcher-3-wild-hunt",
+   "released": "2015-05-18",
+   "metacritic": 92,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    3,
+    5
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    186,
+    1,
+    7
+   ],
+   "rating": 4.66,
+   "ratings_count": 6550,
+   "added": 19650,
+   "description": "Geralt z Rivii szuka swojej przybranej córki Ciri w ogromnym, otwartym świecie pełnym potworów i trudnych wyborów."
+  },
+  {
+   "id": 900003,
+   "name": "Portal 2",
+   "slug": "portal-2",
+   "released": "2011-04-18",
+   "metacritic": 95,
+   "esrb_rating": "Everyone 10+",
+   "genres": [
+    2,
+    7
+   ],
+   "platforms": [
+    4,
+    16,
+    14,
+    5,
+    6
+   ],
+   "rating": 4.61,
+   "ratings_count": 6433,
+   "added": 19300,
+   "description": "Logiczna gra z perspektywy pierwszej osoby: portale, fizyka i złośliwa sztuczna inteligencja GLaDOS. Tryb kooperacji dla dwóch graczy."
+  },
+  {
+   "id": 900004,
+   "name": "Counter-Strike: Global Offensive",
+   "slug": "counter-strike-global-offensive",
+   "released": "2012-08-21",
+   "metacritic": 81,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    2
+   ],
+   "platforms": [
+    4,
+    16,
+    14,
+    5,
+    6
+   ],
+   "rating": 3.57,
+   "ratings_count": 6316,
+   "added": 18950,
+   "description": "Drużynowa strzelanka taktyczna: terroryści kontra antyterroryści w krótkich, intensywnych rundach."
+  },
+  {
+   "id": 900005,
+   "name": "Tomb Raider",
+   "slug": "tomb-raider",
+   "released": "2013-03-05",
+   "metacritic": 86,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    3
+   ],
+   "platforms": [
+    4,
+    18,
+    16,
+    1,
+    14,
+    5
+   ],
+   "rating": 4.05,
+   "ratings_count": 6200,
+   "added": 18600,
+   "description": "Młoda Lara Croft rozbija się na tajemniczej wyspie i musi przetrwać. Restart serii z naciskiem na eksplorację i walkę."
+  },
+  {
+   "id": 900006,
+   "name": "The Elder Scrolls V: Skyrim",
+   "slug": "the-elder-scrolls-v-skyrim",
+   "released": "2011-11-11",
+   "metacritic": 94,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    5
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    16,
+    186,
+    1,
+    14,
+    7
+   ],
+   "rating": 4.42,
+   "ratings_count": 6083,
+   "added": 18250,
+   "description": "Smoki powracają do Skyrim, a gracz odkrywa, że jest Smoczym Dziecięciem. Ogromny otwarty świat i swoboda rozwoju postaci."
+  },
+  {
+   "id": 900007,
+   "name": "Red Dead Redemption 2",
+   "slug": "red-dead-redemption-2",
+   "released": "2018-10-26",
+   "metacritic": 96,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    3
+   ],
+   "platforms": [
+    4,
+    18,
+    1
+   ],
+   "rating": 4.59,
+   "ratings_count": 5966,
+   "added": 17900,
+   "description": "Arthur Morgan i gang Van der Lindego uciekają przed prawem u schyłku epoki Dzikiego Zachodu."
+  },
+  {
+   "id": 900008,
+   "name": "Left 4 Dead 2",
+   "slug": "left-4-dead-2",
+   "released": "2009-11-17",
+   "metacritic": 89,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    2
+   ],
+   "platforms": [
+    4,
+    14,
+    5,
+    6
+   ],
+   "rating": 4.09,
+   "ratings_count": 5850,
+   "added": 17550,
+   "description": "Kooperacyjna strzelanka dla czterech graczy: przebijanie się przez hordy zombie na amerykańskim Południu."
+  },
+  {
+   "id": 900009,
+   "name": "BioShock Infinite",
+   "slug": "bioshock-infinite",
+   "released": "2013-03-26",
+   "metacritic": 94,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    2
+   ],
+   "platforms": [
+    4,
+    16,
+    14,
+    5,
+    6,
+    7
+   ],
+   "rating": 4.38,
+   "ratings_count": 5733,
+   "added": 17200,
+   "description": "Booker DeWitt trafia do latającego miasta Columbia, by uratować tajemniczą Elizabeth."
+  },
+  {
+   "id": 900010,
+   "name": "Life is Strange",
+   "slug": "life-is-strange",
+   "released": "2015-01-29",
+   "metacritic": 83,
+   "esrb_rating": "Mature",
+   "genres": [
+    3
+   ],
+   "platforms": [
+    4,
+    18,
+    16,
+    1,
+    14,
+    5,
+    6,
+    3,
+    21
+   ],
+   "rating": 4.11,
+   "ratings_count": 5616,
+   "added": 16850,
+   "description": "Studentka Max odkrywa, że potrafi cofać czas, i próbuje zapobiec katastrofie w miasteczku Arcadia Bay."
+  },
+  {
+   "id": 900011,
+   "name": "Borderlands 2",
+   "slug": "borderlands-2",
+   "released": "2012-09-18",
+   "metacritic": 89,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    2,
+    5
+   ],
+   "platforms": [
+    4,
+    18,
+    16,
+    1,
+    14,
+    5,
+    6,
+    7
+   ],
+   "rating": 4.03,
+   "ratings_count": 5500,
+   "added": 16500,
+   "description": "Strzelanka z elementami RPG i milionami broni. Łowcy Skarbów walczą z Przystojnym Jackiem na planecie Pandora."
+  },
+  {
+   "id": 900012,
+   "name": "Half-Life 2",
+   "slug": "half-life-2",
+   "released": "2004-11-16",
+   "metacritic": 96,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    2
+   ],
+   "platforms": [
+    4,
+    16,
+    14,
+    5,
+    6,
+    21
+   ],
+   "rating": 4.48,
+   "ratings_count": 5383,
+   "added": 16150,
+   "description": "Gordon Freeman wraca do City 17 opanowanego przez Kombinat. Klasyka strzelanek z fizyką i łamigłówkami."
+  },
+  {
+   "id": 900013,
+   "name": "Portal",
+   "slug": "portal",
+   "released": "2007-10-09",
+   "metacritic": 90,
+   "esrb_rating": "Teen",
+   "genres": [
+    4,
+    7
+   ],
+   "platforms": [
+    4,
+    16,
+    14,
+    5,
+    6,
+    7,
+    21
+   ],
+   "rating": 4.51,
+   "ratings_count": 5266,
+   "added": 15800,
+   "description": "Krótka, logiczna gra o pistolecie tworzącym portale i ośrodku badawczym Aperture Science."
+  },
+  {
+   "id": 900014,
+   "name": "Limbo",
+   "slug": "limbo",
+   "released": "2010-07-21",
+   "metacritic": 90,
+   "esrb_rating": "Teen",
+   "genres": [
+    51,
+    3,
+    7,
+    83
+   ],
+   "platforms": [
+    4,
+    18,
+    16,
+    1,
+    14,
+    5,
+    6,
+    7,
+    3,
+    21
+   ],
+   "rating": 4.15,
+   "ratings_count": 5150,
+   "added": 15450,
+   "description": "Mroczna, czarno-biała platformówka logiczna o chłopcu szukającym siostry na skraju piekła."
+  },
+  {
+   "id": 900015,
+   "name": "God of War",
+   "slug": "god-of-war",
+   "released": "2018-04-20",
+   "metacritic": 94,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    3
+   ],
+   "platforms": [
+    4,
+    18
+   ],
+   "rating": 4.56,
+   "ratings_count": 5033,
+   "added": 15100,
+   "description": "Kratos i jego syn Atreus wyruszają w podróż przez krainy nordyckiej mitologii."
+  },
+  {
+   "id": 900016,
+   "name": "Cyberpunk 2077",
+   "slug": "cyberpunk-2077",
+   "released": "2020-12-10",
+   "metacritic": 86,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    2,
+    5
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    186,
+    1
+   ],
+   "rating": 4.16,
+   "ratings_count": 4916,
+   "added": 14750,
+   "description": "RPG akcji w otwartym świecie Night City. Najemnik V walczy o przetrwanie z chipem legendy w głowie."
+  },
+  {
+   "id": 900017,
+   "name": "Fallout 4",
+   "slug": "fallout-4",
+   "released": "2015-11-10",
+   "metacritic": 84,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    5
+   ],
+   "platforms": [
+    4,
+    18,
+    1
+   ],
+   "rating": 3.81,
+   "ratings_count": 4800,
+   "added": 14400,
+   "description": "Ocalały z Krypty 111 szuka porwanego syna na postapokaliptycznych pustkowiach Bostonu."
+  },
+  {
+   "id": 900018,
+   "name": "Minecraft",
+   "slug": "minecraft",
+   "released": "2011-11-18",
+   "metacritic": 93,
+   "esrb_rating": "Everyone 10+",
+   "genres": [
+    4,
+    3,
+    51,
+    14
+   ],
+   "platforms": [
+    4,
+    18,
+    16,
+    1,
+    14,
+    7,
+    5,
+    6,
+    3,
+    21
+   ],
+   "rating": 4.42,
+   "ratings_count": 4683,
+   "added": 14050,
+   "description": "Budowanie, kopanie i przetrwanie w nieskończonym świecie z bloków."
+  },
+  {
+   "id": 900019,
+   "name": "Hollow Knight",
+   "slug": "hollow-knight",
+   "released": "2017-02-24",
+   "metacritic": 87,
+   "esrb_rating": "Everyone 10+",
+   "genres": [
+    4,
+    51,
+    83
+   ],
+   "platforms": [
+    4,
+    18,
+    1,
+    7,
+    5,
+    6
+   ],
+   "rating": 4.4,
+   "ratings_count": 4566,
+   "added": 13700,
+   "description": "Metroidvania o rycerzu eksplorującym upadłe królestwo owadów Hallownest."
+  },
+  {
+   "id": 900020,
+   "name": "Stardew Valley",
+   "slug": "stardew-valley",
+   "released": "2016-02-26",
+   "metacritic": 89,
+   "esrb_rating": "Everyone 10+",
+   "genres": [
+    51,
+    5,
+    14
+   ],
+   "platforms": [
+    4,
+    18,
+    1,
+    7,
+    5,
+    6,
+    3,
+    21
+   ],
+   "rating": 4.4,
+   "ratings_count": 4450,
+   "added": 13350,
+   "description": "Symulator farmy: uprawa roślin, hodowla zwierząt i życie w małym miasteczku."
+  },
+  {
+   "id": 900021,
+   "name": "Hades",
+   "slug": "hades",
+   "released": "2020-09-17",
+   "metacritic": 93,
+   "esrb_rating": "Teen",
+   "genres": [
+    4,
+    51,
+    5
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    186,
+    1,
+    7,
+    5
+   ],
+   "rating": 4.5,
+   "ratings_count": 4333,
+   "added": 13000,
+   "description": "Roguelike akcji: Zagreus, syn Hadesa, próbuje uciec z podziemi greckiej mitologii."
+  },
+  {
+   "id": 900022,
+   "name": "Celeste",
+   "slug": "celeste",
+   "released": "2018-01-25",
+   "metacritic": 92,
+   "esrb_rating": "Everyone 10+",
+   "genres": [
+    51,
+    83
+   ],
+   "platforms": [
+    4,
+    18,
+    1,
+    7,
+    5,
+    6
+   ],
+   "rating": 4.3,
+   "ratings_count": 4216,
+   "added": 12650,
+   "description": "Wymagająca platformówka o Madeline, która wspina się na górę Celeste i mierzy się z własnymi lękami."
+  },
+  {
+   "id": 900023,
+   "name": "Terraria",
+   "slug": "terraria",
+   "released": "2011-05-16",
+   "metacritic": 83,
+   "esrb_rating": "Teen",
+   "genres": [
+    4,
+    51,
+    3
+   ],
+   "platforms": [
+    4,
+    18,
+    16,
+    1,
+    14,
+    7,
+    5,
+    6,
+    3,
+    21
+   ],
+   "rating": 4.1,
+   "ratings_count": 4100,
+   "added": 12300,
+   "description": "Dwuwymiarowa przygoda: kopanie, budowanie, walka z bossami i eksploracja."
+  },
+  {
+   "id": 900024,
+   "name": "Dark Souls III",
+   "slug": "dark-souls-iii",
+   "released": "2016-04-11",
+   "metacritic": 89,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    5
+   ],
+   "platforms": [
+    4,
+    18,
+    1
+   ],
+   "rating": 4.4,
+   "ratings_count": 3983,
+   "added": 11950,
+   "description": "Trudne RPG akcji w umierającym królestwie Lothric. Wymagająca walka i mroczny klimat."
+  },
+  {
+   "id": 900025,
+   "name": "Elden Ring",
+   "slug": "elden-ring",
+   "released": "2022-02-25",
+   "metacritic": 96,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    5
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    186,
+    1
+   ],
+   "rating": 4.4,
+   "ratings_count": 3866,
+   "added": 11600,
+   "description": "RPG akcji w otwartym świecie Ziem Pomiędzy, stworzonym przez FromSoftware we współpracy z G.R.R. Martinem."
+  },
+  {
+   "id": 900026,
+   "name": "The Legend of Zelda: Breath of the Wild",
+   "slug": "the-legend-of-zelda-breath-of-the-wild",
+   "released": "2017-03-03",
+   "metacritic": 97,
+   "esrb_rating": "Everyone 10+",
+   "genres": [
+    4,
+    3
+   ],
+   "platforms": [
+    7,
+    10
+   ],
+   "rating": 4.5,
+   "ratings_count": 3750,
+   "added": 11250,
+   "description": "Link budzi się po stu latach i przemierza otwarty Hyrule, by pokonać Klątwę Ganona."
+  },
+  {
+   "id": 900027,
+   "name": "Sekiro: Shadows Die Twice",
+   "slug": "sekiro-shadows-die-twice",
+   "released": "2019-03-22",
+   "metacritic": 90,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    3
+   ],
+   "platforms": [
+    4,
+    18,
+    1
+   ],
+   "rating": 4.4,
+   "ratings_count": 3633,
+   "added": 10900,
+   "description": "Shinobi Wilk walczy o ocalenie swojego pana w Japonii epoki Sengoku. Precyzyjna walka mieczem."
+  },
+  {
+   "id": 900028,
+   "name": "Mass Effect 2",
+   "slug": "mass-effect-2",
+   "released": "2010-01-26",
+   "metacritic": 94,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    5,
+    2
+   ],
+   "platforms": [
+    4,
+    16,
+    14
+   ],
+   "rating": 4.5,
+   "ratings_count": 3516,
+   "added": 10550,
+   "description": "Komandor Shepard kompletuje drużynę na samobójczą misję przeciwko Zbieraczom."
+  },
+  {
+   "id": 900029,
+   "name": "DOOM",
+   "slug": "doom",
+   "released": "2016-05-13",
+   "metacritic": 85,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    2
+   ],
+   "platforms": [
+    4,
+    18,
+    1,
+    7
+   ],
+   "rating": 4.38,
+   "ratings_count": 3400,
+   "added": 10200,
+   "description": "Szybka strzelanka: Doom Slayer walczy z demonami w bazie na Marsie i w piekle."
+  },
+  {
+   "id": 900030,
+   "name": "Rocket League",
+   "slug": "rocket-league",
+   "released": "2015-07-07",
+   "metacritic": 86,
+   "esrb_rating": "Everyone",
+   "genres": [
+    15,
+    1,
+    11
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    186,
+    1,
+    7
+   ],
+   "rating": 3.9,
+   "ratings_count": 3283,
+   "added": 9850,
+   "description": "Piłka nożna samochodami z napędem rakietowym. Krótkie mecze online."
+  },
+  {
+   "id": 900031,
+   "name": "Among Us",
+   "slug": "among-us",
+   "released": "2018-06-15",
+   "metacritic": null,
+   "esrb_rating": "Everyone 10+",
+   "genres": [
+    40
+   ],
+   "platforms": [
+    4,
+    7,
+    3,
+    21
+   ],
+   "rating": 3.6,
+   "ratings_count": 3166,
+   "added": 9500,
+   "description": "Gra towarzyska online: załoga statku szuka zdrajców, którzy sabotują misję."
+  },
+  {
+   "id": 900032,
+   "name": "Fortnite",
+   "slug": "fortnite",
+   "released": "2017-07-21",
+   "metacritic": 81,
+   "esrb_rating": "Teen",
+   "genres": [
+    4,
+    2,
+    59
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    186,
+    1,
+    7
+   ],
+   "rating": 3.3,
+   "ratings_count": 3050,
+   "added": 9150,
+   "description": "Battle royale dla stu graczy z budowaniem konstrukcji i sezonowymi wydarzeniami."
+  },
+  {
+   "id": 900033,
+   "name": "Apex Legends",
+   "slug": "apex-legends",
+   "released": "2019-02-04",
+   "metacritic": 88,
+   "esrb_rating": "Teen",
+   "genres": [
+    4,
+    2
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    186,
+    1,
+    7
+   ],
+   "rating": 3.6,
+   "ratings_count": 2933,
+   "added": 8800,
+   "description": "Drużynowe battle royale w świecie Titanfalla z bohaterami o unikalnych umiejętnościach."
+  },
+  {
+   "id": 900034,
+   "name": "Overwatch",
+   "slug": "overwatch",
+   "released": "2016-05-24",
+   "metacritic": 91,
+   "esrb_rating": "Teen",
+   "genres": [
+    4,
+    2
+   ],
+   "platforms": [
+    4,
+    18,
+    1,
+    7
+   ],
+   "rating": 3.9,
+   "ratings_count": 2816,
+   "added": 8450,
+   "description": "Drużynowa strzelanka z bohaterami o różnych rolach: tank, wsparcie, obrażenia."
+  },
+  {
+   "id": 900035,
+   "name": "Dota 2",
+   "slug": "dota-2",
+   "released": "2013-07-09",
+   "metacritic": 90,
+   "esrb_rating": null,
+   "genres": [
+    4,
+    10
+   ],
+   "platforms": [
+    4,
+    5,
+    6
+   ],
+   "rating": 3.0,
+   "ratings_count": 2700,
+   "added": 8100,
+   "description": "Gra MOBA: dwie drużyny po pięciu bohaterów walczą o zniszczenie bazy przeciwnika."
+  },
+  {
+   "id": 900036,
+   "name": "Warframe",
+   "slug": "warframe",
+   "released": "2013-03-25",
+   "metacritic": 69,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    2,
+    59
+   ],
+   "platforms": [
+    4,
+    18,
+    1,
+    7
+   ],
+   "rating": 3.4,
+   "ratings_count": 2583,
+   "added": 7750,
+   "description": "Kooperacyjna strzelanka akcji online o kosmicznych ninja Tenno."
+  },
+  {
+   "id": 900037,
+   "name": "PUBG: Battlegrounds",
+   "slug": "pubg-battlegrounds",
+   "released": "2017-12-21",
+   "metacritic": 86,
+   "esrb_rating": "Teen",
+   "genres": [
+    4,
+    2,
+    59
+   ],
+   "platforms": [
+    4,
+    18,
+    1
+   ],
+   "rating": 3.1,
+   "ratings_count": 2466,
+   "added": 7400,
+   "description": "Battle royale: sto osób ląduje na wyspie i walczy o przetrwanie do końca."
+  },
+  {
+   "id": 900038,
+   "name": "Sid Meier's Civilization VI",
+   "slug": "sid-meier-s-civilization-vi",
+   "released": "2016-10-21",
+   "metacritic": 88,
+   "esrb_rating": "Everyone 10+",
+   "genres": [
+    10
+   ],
+   "platforms": [
+    4,
+    18,
+    1,
+    7,
+    5,
+    6,
+    3,
+    21
+   ],
+   "rating": 4.0,
+   "ratings_count": 2350,
+   "added": 7050,
+   "description": "Turowa strategia: rozwój cywilizacji od epoki kamienia po erę informacji."
+  },
+  {
+   "id": 900039,
+   "name": "Cities: Skylines",
+   "slug": "cities-skylines",
+   "released": "2015-03-10",
+   "metacritic": 85,
+   "esrb_rating": "Everyone",
+   "genres": [
+    10,
+    14
+   ],
+   "platforms": [
+    4,
+    18,
+    1,
+    7,
+    5,
+    6
+   ],
+   "rating": 4.1,
+   "ratings_count": 2233,
+   "added": 6700,
+   "description": "Symulator budowy miasta: drogi, strefy, transport publiczny i zarządzanie budżetem."
+  },
+  {
+   "id": 900040,
+   "name": "Disco Elysium",
+   "slug": "disco-elysium",
+   "released": "2019-10-15",
+   "metacritic": 91,
+   "esrb_rating": "Mature",
+   "genres": [
+    5,
+    3,
+    51
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    186,
+    1,
+    7,
+    5
+   ],
+   "rating": 4.4,
+   "ratings_count": 2116,
+   "added": 6350,
+   "description": "RPG detektywistyczne bez walki: detektyw z amnezją rozwiązuje sprawę morderstwa w mieście Revachol."
+  },
+  {
+   "id": 900041,
+   "name": "Baldur's Gate 3",
+   "slug": "baldur-s-gate-3",
+   "released": "2023-08-03",
+   "metacritic": 96,
+   "esrb_rating": "Mature",
+   "genres": [
+    5,
+    10,
+    3
+   ],
+   "platforms": [
+    4,
+    187,
+    186,
+    5
+   ],
+   "rating": 4.6,
+   "ratings_count": 2000,
+   "added": 6000,
+   "description": "RPG w świecie Dungeons & Dragons z turową walką i ogromną swobodą wyborów."
+  },
+  {
+   "id": 900042,
+   "name": "Hogwarts Legacy",
+   "slug": "hogwarts-legacy",
+   "released": "2023-02-10",
+   "metacritic": 84,
+   "esrb_rating": "Teen",
+   "genres": [
+    4,
+    3,
+    5
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    186,
+    1,
+    7
+   ],
+   "rating": 4.2,
+   "ratings_count": 1883,
+   "added": 5650,
+   "description": "RPG akcji w Hogwarcie w XIX wieku: nauka zaklęć i odkrywanie tajemnic szkoły."
+  },
+  {
+   "id": 900043,
+   "name": "Resident Evil 4",
+   "slug": "resident-evil-4",
+   "released": "2023-03-24",
+   "metacritic": 93,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    2
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    186
+   ],
+   "rating": 4.4,
+   "ratings_count": 1766,
+   "added": 5300,
+   "description": "Remake klasycznego survival horroru: Leon Kennedy ratuje córkę prezydenta w wiosce w Hiszpanii."
+  },
+  {
+   "id": 900044,
+   "name": "Ghost of Tsushima",
+   "slug": "ghost-of-tsushima",
+   "released": "2020-07-17",
+   "metacritic": 83,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    3
+   ],
+   "platforms": [
+    4,
+    187,
+    18
+   ],
+   "rating": 4.5,
+   "ratings_count": 1650,
+   "added": 4950,
+   "description": "Samuraj Jin Sakai broni wyspy Cuszima przed inwazją Mongołów w 1274 roku."
+  },
+  {
+   "id": 900045,
+   "name": "Horizon Zero Dawn",
+   "slug": "horizon-zero-dawn",
+   "released": "2017-02-28",
+   "metacritic": 89,
+   "esrb_rating": "Teen",
+   "genres": [
+    4,
+    3,
+    5
+   ],
+   "platforms": [
+    4,
+    18
+   ],
+   "rating": 4.3,
+   "ratings_count": 1533,
+   "added": 4600,
+   "description": "Łowczyni Aloy odkrywa tajemnicę świata, w którym ludzie żyją obok maszyn przypominających zwierzęta."
+  },
+  {
+   "id": 900046,
+   "name": "Death Stranding",
+   "slug": "death-stranding",
+   "released": "2019-11-08",
+   "metacritic": 82,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    3
+   ],
+   "platforms": [
+    4,
+    187,
+    18
+   ],
+   "rating": 4.0,
+   "ratings_count": 1416,
+   "added": 4250,
+   "description": "Kurier Sam Porter Bridges łączy podzieloną Amerykę po tajemniczej katastrofie."
+  },
+  {
+   "id": 900047,
+   "name": "It Takes Two",
+   "slug": "it-takes-two",
+   "released": "2021-03-26",
+   "metacritic": 88,
+   "esrb_rating": "Teen",
+   "genres": [
+    3,
+    83,
+    7
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    186,
+    1,
+    7
+   ],
+   "rating": 4.4,
+   "ratings_count": 1300,
+   "added": 3900,
+   "description": "Kooperacyjna przygoda dla dwóch graczy o parze zamienionej w lalki, która musi naprawić swój związek."
+  },
+  {
+   "id": 900048,
+   "name": "Inside",
+   "slug": "inside",
+   "released": "2016-06-29",
+   "metacritic": 91,
+   "esrb_rating": "Mature",
+   "genres": [
+    51,
+    3,
+    7,
+    83
+   ],
+   "platforms": [
+    4,
+    18,
+    1,
+    7,
+    5,
+    3
+   ],
+   "rating": 4.3,
+   "ratings_count": 1183,
+   "added": 3550,
+   "description": "Mroczna platformówka logiczna o chłopcu uciekającym przed tajemniczą organizacją."
+  },
+  {
+   "id": 900049,
+   "name": "Undertale",
+   "slug": "undertale",
+   "released": "2015-09-15",
+   "metacritic": 92,
+   "esrb_rating": "Everyone 10+",
+   "genres": [
+    5,
+    51
+   ],
+   "platforms": [
+    4,
+    18,
+    7,
+    5,
+    6
+   ],
+   "rating": 4.3,
+   "ratings_count": 1066,
+   "added": 3200,
+   "description": "Nietypowe RPG, w którym nie trzeba nikogo zabijać. Dziecko spada do podziemnego świata potworów."
+  },
+  {
+   "id": 900050,
+   "name": "Tom Clancy's Rainbow Six Siege",
+   "slug": "tom-clancy-s-rainbow-six-siege",
+   "released": "2015-12-01",
+   "metacritic": 79,
+   "esrb_rating": "Mature",
+   "genres": [
+    4,
+    2
+   ],
+   "platforms": [
+    4,
+    187,
+    18,
+    186,
+    1
+   ],
+   "rating": 3.5,
+   "ratings_count": 950,
+   "added": 2850,
+   "description": "Taktyczna strzelanka drużynowa z niszczalnym otoczeniem i operatorami o specjalnych gadżetach."
+  }
+ ]
+}
