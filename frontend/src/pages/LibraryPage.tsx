@@ -1,6 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { ErrorState } from '../components/ErrorState'
 import { LibraryListSkeleton } from '../components/Skeleton'
 import { apiErrorMessage } from '../lib/api'
@@ -15,12 +14,30 @@ import {
 const ratings = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 export function LibraryPage() {
-  const [status, setStatus] = useState<LibraryStatus | 'all'>('all')
+  // Status w URL (?status=playing): przetrwa odświeżenie, działa „wstecz” i można go udostępnić linkiem.
+  const [params, setParams] = useSearchParams()
+  const statusParam = params.get('status') ?? ''
+  const status: LibraryStatus | 'all' = isLibraryStatus(statusParam) ? statusParam : 'all'
+  const setStatus = (next: LibraryStatus | 'all') =>
+    setParams((current) => {
+      const updated = new URLSearchParams(current)
+      if (next === 'all') updated.delete('status')
+      else updated.set('status', next)
+      return updated
+    })
+
   const queryClient = useQueryClient()
+  // Jedno zapytanie o całą bibliotekę (ten sam cache co przyciski „Dodaj do biblioteki”);
+  // filtrowanie i liczniki po stronie klienta, więc przełączanie zakładek jest natychmiastowe.
   const library = useQuery({
-    queryKey: ['library', status],
-    queryFn: () => fetchLibrary(status === 'all' ? undefined : status),
+    queryKey: ['library', 'all'],
+    queryFn: () => fetchLibrary(),
   })
+  const allEntries = library.data ?? []
+  const entries = status === 'all' ? allEntries : allEntries.filter((entry) => entry.status === status)
+  const counts = Object.fromEntries(
+    libraryStatuses.map((value) => [value, allEntries.filter((entry) => entry.status === value).length]),
+  ) as Record<LibraryStatus, number>
 
   const update = useMutation({
     mutationFn: ({
@@ -48,11 +65,20 @@ export function LibraryPage() {
       <p className="mt-2 text-slate-400">Twoje kolekcje gier.</p>
 
       <div className="mt-6 flex flex-wrap gap-2">
-        <FilterButton active={status === 'all'} onClick={() => setStatus('all')}>
+        <FilterButton
+          active={status === 'all'}
+          count={library.data ? allEntries.length : undefined}
+          onClick={() => setStatus('all')}
+        >
           Wszystkie
         </FilterButton>
         {libraryStatuses.map((value) => (
-          <FilterButton key={value} active={status === value} onClick={() => setStatus(value)}>
+          <FilterButton
+            key={value}
+            active={status === value}
+            count={library.data ? counts[value] : undefined}
+            onClick={() => setStatus(value)}
+          >
             {libraryStatusLabels[value]}
           </FilterButton>
         ))}
@@ -73,16 +99,16 @@ export function LibraryPage() {
             onRetry={() => void library.refetch()}
           />
         )}
-        {library.isSuccess && library.data.length === 0 && (
+        {library.isSuccess && entries.length === 0 && (
           <p className="text-slate-300">
             {status === 'all'
               ? 'Nie masz jeszcze żadnych gier. Wyszukaj tytuł i dodaj go do kolekcji.'
               : 'Brak gier z tym statusem.'}
           </p>
         )}
-        {library.isSuccess && library.data.length > 0 && (
+        {library.isSuccess && entries.length > 0 && (
           <ul className="space-y-4">
-            {library.data.map((entry) => {
+            {entries.map((entry) => {
               const busy =
                 (update.isPending && update.variables?.id === entry.id) ||
                 (remove.isPending && remove.variables === entry.id)
@@ -182,16 +208,19 @@ export function LibraryPage() {
 
 function FilterButton({
   active,
+  count,
   onClick,
   children,
 }: {
   active: boolean
+  count?: number
   onClick: () => void
   children: string
 }) {
   return (
     <button
       type="button"
+      aria-pressed={active}
       onClick={onClick}
       className={
         active
@@ -200,6 +229,9 @@ function FilterButton({
       }
     >
       {children}
+      {count !== undefined && (
+        <span className="ml-1.5 tabular-nums text-slate-500">{count}</span>
+      )}
     </button>
   )
 }
