@@ -1,7 +1,8 @@
 """Offline stand-in for the RAWG API.
 
-RAWG has not been responding since ~10.11.2026, so while `RAWG_MOCK=true` the catalog is served
-from `app/data/mock_games.json` (50 popular games, approximate data). The class has the same
+Fallback for working without a RAWG key or while RAWG is down (it was, 10–21.11.2026): with
+`RAWG_MOCK=true` the catalog is served from `app/data/mock_games.json` (50 popular games,
+approximate data). The class has the same
 methods as `RawgClient` and returns payloads in RAWG's shape, so routes and services don't change.
 """
 
@@ -146,7 +147,7 @@ def _to_rawg(game: dict[str, Any]) -> dict[str, Any]:
         "name": game["name"],
         "slug": game["slug"],
         "released": game["released"],
-        "background_image": None,
+        "background_image": game.get("background_image"),
         "rating": game["rating"],
         "ratings_count": game["ratings_count"],
         "metacritic": game["metacritic"],

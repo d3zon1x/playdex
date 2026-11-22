@@ -1,8 +1,8 @@
 {
- "_comment": "Tymczasowe dane przykładowe — RAWG API nie odpowiada od ok. 10.11.2026. Wartości (oceny, Metacritic, platformy) są przybliżone. Identyfikatory 900001+ nie są identyfikatorami RAWG.",
+ "_comment": "Dane przykładowe dla trybu RAWG_MOCK=true (bez klucza RAWG albo gdy RAWG nie działa). Identyfikatory i okładki pochodzą z RAWG (stan na 22.11.2026), pozostałe wartości (oceny, Metacritic, platformy, opisy) są przybliżone.",
  "games": [
   {
-   "id": 900001,
+   "id": 3498,
    "name": "Grand Theft Auto V",
    "slug": "grand-theft-auto-v",
    "released": "2013-09-17",
@@ -24,10 +24,11 @@
    "rating": 4.47,
    "ratings_count": 6666,
    "added": 20000,
-   "description": "Trzech przestępców planuje serię skoków w fikcyjnym Los Santos. Otwarty świat, misje fabularne i tryb online."
+   "description": "Trzech przestępców planuje serię skoków w fikcyjnym Los Santos. Otwarty świat, misje fabularne i tryb online.",
+   "background_image": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg"
   },
   {
-   "id": 900002,
+   "id": 3328,
    "name": "The Witcher 3: Wild Hunt",
    "slug": "the-witcher-3-wild-hunt",
    "released": "2015-05-18",
@@ -49,10 +50,11 @@
    "rating": 4.66,
    "ratings_count": 6550,
    "added": 19650,
-   "description": "Geralt z Rivii szuka swojej przybranej córki Ciri w ogromnym, otwartym świecie pełnym potworów i trudnych wyborów."
+   "description": "Geralt z Rivii szuka swojej przybranej córki Ciri w ogromnym, otwartym świecie pełnym potworów i trudnych wyborów.",
+   "background_image": "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg"
   },
   {
-   "id": 900003,
+   "id": 4200,
    "name": "Portal 2",
    "slug": "portal-2",
    "released": "2011-04-18",
@@ -72,10 +74,11 @@
    "rating": 4.61,
    "ratings_count": 6433,
    "added": 19300,
-   "description": "Logiczna gra z perspektywy pierwszej osoby: portale, fizyka i złośliwa sztuczna inteligencja GLaDOS. Tryb kooperacji dla dwóch graczy."
+   "description": "Logiczna gra z perspektywy pierwszej osoby: portale, fizyka i złośliwa sztuczna inteligencja GLaDOS. Tryb kooperacji dla dwóch graczy.",
+   "background_image": "https://media.rawg.io/media/games/2ba/2bac0e87cf45e5b508f227d281c9252a.jpg"
   },
   {
-   "id": 900004,
+   "id": 4291,
    "name": "Counter-Strike: Global Offensive",
    "slug": "counter-strike-global-offensive",
    "released": "2012-08-21",
@@ -95,10 +98,11 @@
    "rating": 3.57,
    "ratings_count": 6316,
    "added": 18950,
-   "description": "Drużynowa strzelanka taktyczna: terroryści kontra antyterroryści w krótkich, intensywnych rundach."
+   "description": "Drużynowa strzelanka taktyczna: terroryści kontra antyterroryści w krótkich, intensywnych rundach.",
+   "background_image": "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg"
   },
   {
-   "id": 900005,
+   "id": 5286,
    "name": "Tomb Raider",
    "slug": "tomb-raider",
    "released": "2013-03-05",
@@ -119,10 +123,11 @@
    "rating": 4.05,
    "ratings_count": 6200,
    "added": 18600,
-   "description": "Młoda Lara Croft rozbija się na tajemniczej wyspie i musi przetrwać. Restart serii z naciskiem na eksplorację i walkę."
+   "description": "Młoda Lara Croft rozbija się na tajemniczej wyspie i musi przetrwać. Restart serii z naciskiem na eksplorację i walkę.",
+   "background_image": "https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg"
   },
   {
-   "id": 900006,
+   "id": 5679,
    "name": "The Elder Scrolls V: Skyrim",
    "slug": "the-elder-scrolls-v-skyrim",
    "released": "2011-11-11",
@@ -145,10 +150,11 @@
    "rating": 4.42,
    "ratings_count": 6083,
    "added": 18250,
-   "description": "Smoki powracają do Skyrim, a gracz odkrywa, że jest Smoczym Dziecięciem. Ogromny otwarty świat i swoboda rozwoju postaci."
+   "description": "Smoki powracają do Skyrim, a gracz odkrywa, że jest Smoczym Dziecięciem. Ogromny otwarty świat i swoboda rozwoju postaci.",
+   "background_image": "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg"
   },
   {
-   "id": 900007,
+   "id": 28,
    "name": "Red Dead Redemption 2",
    "slug": "red-dead-redemption-2",
    "released": "2018-10-26",
@@ -166,10 +172,11 @@
    "rating": 4.59,
    "ratings_count": 5966,
    "added": 17900,
-   "description": "Arthur Morgan i gang Van der Lindego uciekają przed prawem u schyłku epoki Dzikiego Zachodu."
+   "description": "Arthur Morgan i gang Van der Lindego uciekają przed prawem u schyłku epoki Dzikiego Zachodu.",
+   "background_image": "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"
   },
   {
-   "id": 900008,
+   "id": 12020,
    "name": "Left 4 Dead 2",
    "slug": "left-4-dead-2",
    "released": "2009-11-17",
@@ -188,10 +195,11 @@
    "rating": 4.09,
    "ratings_count": 5850,
    "added": 17550,
-   "description": "Kooperacyjna strzelanka dla czterech graczy: przebijanie się przez hordy zombie na amerykańskim Południu."
+   "description": "Kooperacyjna strzelanka dla czterech graczy: przebijanie się przez hordy zombie na amerykańskim Południu.",
+   "background_image": "https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg"
   },
   {
-   "id": 900009,
+   "id": 4062,
    "name": "BioShock Infinite",
    "slug": "bioshock-infinite",
    "released": "2013-03-26",
@@ -212,10 +220,11 @@
    "rating": 4.38,
    "ratings_count": 5733,
    "added": 17200,
-   "description": "Booker DeWitt trafia do latającego miasta Columbia, by uratować tajemniczą Elizabeth."
+   "description": "Booker DeWitt trafia do latającego miasta Columbia, by uratować tajemniczą Elizabeth.",
+   "background_image": "https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg"
   },
   {
-   "id": 900010,
+   "id": 3439,
    "name": "Life is Strange",
    "slug": "life-is-strange",
    "released": "2015-01-29",
@@ -238,10 +247,11 @@
    "rating": 4.11,
    "ratings_count": 5616,
    "added": 16850,
-   "description": "Studentka Max odkrywa, że potrafi cofać czas, i próbuje zapobiec katastrofie w miasteczku Arcadia Bay."
+   "description": "Studentka Max odkrywa, że potrafi cofać czas, i próbuje zapobiec katastrofie w miasteczku Arcadia Bay.",
+   "background_image": "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg"
   },
   {
-   "id": 900011,
+   "id": 802,
    "name": "Borderlands 2",
    "slug": "borderlands-2",
    "released": "2012-09-18",
@@ -265,10 +275,11 @@
    "rating": 4.03,
    "ratings_count": 5500,
    "added": 16500,
-   "description": "Strzelanka z elementami RPG i milionami broni. Łowcy Skarbów walczą z Przystojnym Jackiem na planecie Pandora."
+   "description": "Strzelanka z elementami RPG i milionami broni. Łowcy Skarbów walczą z Przystojnym Jackiem na planecie Pandora.",
+   "background_image": "https://media.rawg.io/media/games/49c/49c3dfa4ce2f6f140cc4825868e858cb.jpg"
   },
   {
-   "id": 900012,
+   "id": 13537,
    "name": "Half-Life 2",
    "slug": "half-life-2",
    "released": "2004-11-16",
@@ -289,10 +300,11 @@
    "rating": 4.48,
    "ratings_count": 5383,
    "added": 16150,
-   "description": "Gordon Freeman wraca do City 17 opanowanego przez Kombinat. Klasyka strzelanek z fizyką i łamigłówkami."
+   "description": "Gordon Freeman wraca do City 17 opanowanego przez Kombinat. Klasyka strzelanek z fizyką i łamigłówkami.",
+   "background_image": "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg"
   },
   {
-   "id": 900013,
+   "id": 13536,
    "name": "Portal",
    "slug": "portal",
    "released": "2007-10-09",
@@ -314,10 +326,11 @@
    "rating": 4.51,
    "ratings_count": 5266,
    "added": 15800,
-   "description": "Krótka, logiczna gra o pistolecie tworzącym portale i ośrodku badawczym Aperture Science."
+   "description": "Krótka, logiczna gra o pistolecie tworzącym portale i ośrodku badawczym Aperture Science.",
+   "background_image": "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg"
   },
   {
-   "id": 900014,
+   "id": 1030,
    "name": "Limbo",
    "slug": "limbo",
    "released": "2010-07-21",
@@ -344,10 +357,11 @@
    "rating": 4.15,
    "ratings_count": 5150,
    "added": 15450,
-   "description": "Mroczna, czarno-biała platformówka logiczna o chłopcu szukającym siostry na skraju piekła."
+   "description": "Mroczna, czarno-biała platformówka logiczna o chłopcu szukającym siostry na skraju piekła.",
+   "background_image": "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg"
   },
   {
-   "id": 900015,
+   "id": 58175,
    "name": "God of War",
    "slug": "god-of-war",
    "released": "2018-04-20",
@@ -364,10 +378,11 @@
    "rating": 4.56,
    "ratings_count": 5033,
    "added": 15100,
-   "description": "Kratos i jego syn Atreus wyruszają w podróż przez krainy nordyckiej mitologii."
+   "description": "Kratos i jego syn Atreus wyruszają w podróż przez krainy nordyckiej mitologii.",
+   "background_image": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
   },
   {
-   "id": 900016,
+   "id": 41494,
    "name": "Cyberpunk 2077",
    "slug": "cyberpunk-2077",
    "released": "2020-12-10",
@@ -388,10 +403,11 @@
    "rating": 4.16,
    "ratings_count": 4916,
    "added": 14750,
-   "description": "RPG akcji w otwartym świecie Night City. Najemnik V walczy o przetrwanie z chipem legendy w głowie."
+   "description": "RPG akcji w otwartym świecie Night City. Najemnik V walczy o przetrwanie z chipem legendy w głowie.",
+   "background_image": "https://media.rawg.io/media/games/26d/26d4437715bee60138dab4a7c8c59c92.jpg"
   },
   {
-   "id": 900017,
+   "id": 3070,
    "name": "Fallout 4",
    "slug": "fallout-4",
    "released": "2015-11-10",
@@ -409,10 +425,11 @@
    "rating": 3.81,
    "ratings_count": 4800,
    "added": 14400,
-   "description": "Ocalały z Krypty 111 szuka porwanego syna na postapokaliptycznych pustkowiach Bostonu."
+   "description": "Ocalały z Krypty 111 szuka porwanego syna na postapokaliptycznych pustkowiach Bostonu.",
+   "background_image": "https://media.rawg.io/media/games/d82/d82990b9c67ba0d2d09d4e6fa88885a7.jpg"
   },
   {
-   "id": 900018,
+   "id": 22509,
    "name": "Minecraft",
    "slug": "minecraft",
    "released": "2011-11-18",
@@ -439,10 +456,11 @@
    "rating": 4.42,
    "ratings_count": 4683,
    "added": 14050,
-   "description": "Budowanie, kopanie i przetrwanie w nieskończonym świecie z bloków."
+   "description": "Budowanie, kopanie i przetrwanie w nieskończonym świecie z bloków.",
+   "background_image": "https://media.rawg.io/media/games/b4e/b4e4c73d5aa4ec66bbf75375c4847a2b.jpg"
   },
   {
-   "id": 900019,
+   "id": 9767,
    "name": "Hollow Knight",
    "slug": "hollow-knight",
    "released": "2017-02-24",
@@ -464,10 +482,11 @@
    "rating": 4.4,
    "ratings_count": 4566,
    "added": 13700,
-   "description": "Metroidvania o rycerzu eksplorującym upadłe królestwo owadów Hallownest."
+   "description": "Metroidvania o rycerzu eksplorującym upadłe królestwo owadów Hallownest.",
+   "background_image": "https://media.rawg.io/media/games/4cf/4cfc6b7f1850590a4634b08bfab308ab.jpg"
   },
   {
-   "id": 900020,
+   "id": 654,
    "name": "Stardew Valley",
    "slug": "stardew-valley",
    "released": "2016-02-26",
@@ -491,10 +510,11 @@
    "rating": 4.4,
    "ratings_count": 4450,
    "added": 13350,
-   "description": "Symulator farmy: uprawa roślin, hodowla zwierząt i życie w małym miasteczku."
+   "description": "Symulator farmy: uprawa roślin, hodowla zwierząt i życie w małym miasteczku.",
+   "background_image": "https://media.rawg.io/media/games/713/713269608dc8f2f40f5a670a14b2de94.jpg"
   },
   {
-   "id": 900021,
+   "id": 274755,
    "name": "Hades",
    "slug": "hades",
    "released": "2020-09-17",
@@ -517,10 +537,11 @@
    "rating": 4.5,
    "ratings_count": 4333,
    "added": 13000,
-   "description": "Roguelike akcji: Zagreus, syn Hadesa, próbuje uciec z podziemi greckiej mitologii."
+   "description": "Roguelike akcji: Zagreus, syn Hadesa, próbuje uciec z podziemi greckiej mitologii.",
+   "background_image": "https://media.rawg.io/media/games/1f4/1f47a270b8f241e4676b14d39ec620f7.jpg"
   },
   {
-   "id": 900022,
+   "id": 22121,
    "name": "Celeste",
    "slug": "celeste",
    "released": "2018-01-25",
@@ -541,10 +562,11 @@
    "rating": 4.3,
    "ratings_count": 4216,
    "added": 12650,
-   "description": "Wymagająca platformówka o Madeline, która wspina się na górę Celeste i mierzy się z własnymi lękami."
+   "description": "Wymagająca platformówka o Madeline, która wspina się na górę Celeste i mierzy się z własnymi lękami.",
+   "background_image": "https://media.rawg.io/media/games/594/59487800889ebac294c7c2c070d02356.jpg"
   },
   {
-   "id": 900023,
+   "id": 422,
    "name": "Terraria",
    "slug": "terraria",
    "released": "2011-05-16",
@@ -570,10 +592,11 @@
    "rating": 4.1,
    "ratings_count": 4100,
    "added": 12300,
-   "description": "Dwuwymiarowa przygoda: kopanie, budowanie, walka z bossami i eksploracja."
+   "description": "Dwuwymiarowa przygoda: kopanie, budowanie, walka z bossami i eksploracja.",
+   "background_image": "https://media.rawg.io/media/games/f46/f466571d536f2e3ea9e815ad17177501.jpg"
   },
   {
-   "id": 900024,
+   "id": 2551,
    "name": "Dark Souls III",
    "slug": "dark-souls-iii",
    "released": "2016-04-11",
@@ -591,10 +614,11 @@
    "rating": 4.4,
    "ratings_count": 3983,
    "added": 11950,
-   "description": "Trudne RPG akcji w umierającym królestwie Lothric. Wymagająca walka i mroczny klimat."
+   "description": "Trudne RPG akcji w umierającym królestwie Lothric. Wymagająca walka i mroczny klimat.",
+   "background_image": "https://media.rawg.io/media/games/da1/da1b267764d77221f07a4386b6548e5a.jpg"
   },
   {
-   "id": 900025,
+   "id": 326243,
    "name": "Elden Ring",
    "slug": "elden-ring",
    "released": "2022-02-25",
@@ -614,10 +638,11 @@
    "rating": 4.4,
    "ratings_count": 3866,
    "added": 11600,
-   "description": "RPG akcji w otwartym świecie Ziem Pomiędzy, stworzonym przez FromSoftware we współpracy z G.R.R. Martinem."
+   "description": "RPG akcji w otwartym świecie Ziem Pomiędzy, stworzonym przez FromSoftware we współpracy z G.R.R. Martinem.",
+   "background_image": "https://media.rawg.io/media/games/b29/b294fdd866dcdb643e7bab370a552855.jpg"
   },
   {
-   "id": 900026,
+   "id": 22511,
    "name": "The Legend of Zelda: Breath of the Wild",
    "slug": "the-legend-of-zelda-breath-of-the-wild",
    "released": "2017-03-03",
@@ -634,10 +659,11 @@
    "rating": 4.5,
    "ratings_count": 3750,
    "added": 11250,
-   "description": "Link budzi się po stu latach i przemierza otwarty Hyrule, by pokonać Klątwę Ganona."
+   "description": "Link budzi się po stu latach i przemierza otwarty Hyrule, by pokonać Klątwę Ganona.",
+   "background_image": "https://media.rawg.io/media/games/cc1/cc196a5ad763955d6532cdba236f730c.jpg"
   },
   {
-   "id": 900027,
+   "id": 50734,
    "name": "Sekiro: Shadows Die Twice",
    "slug": "sekiro-shadows-die-twice",
    "released": "2019-03-22",
@@ -655,10 +681,11 @@
    "rating": 4.4,
    "ratings_count": 3633,
    "added": 10900,
-   "description": "Shinobi Wilk walczy o ocalenie swojego pana w Japonii epoki Sengoku. Precyzyjna walka mieczem."
+   "description": "Shinobi Wilk walczy o ocalenie swojego pana w Japonii epoki Sengoku. Precyzyjna walka mieczem.",
+   "background_image": "https://media.rawg.io/media/games/67f/67f62d1f062a6164f57575e0604ee9f6.jpg"
   },
   {
-   "id": 900028,
+   "id": 4806,
    "name": "Mass Effect 2",
    "slug": "mass-effect-2",
    "released": "2010-01-26",
@@ -677,10 +704,11 @@
    "rating": 4.5,
    "ratings_count": 3516,
    "added": 10550,
-   "description": "Komandor Shepard kompletuje drużynę na samobójczą misję przeciwko Zbieraczom."
+   "description": "Komandor Shepard kompletuje drużynę na samobójczą misję przeciwko Zbieraczom.",
+   "background_image": "https://media.rawg.io/media/games/3cf/3cff89996570cf29a10eb9cd967dcf73.jpg"
   },
   {
-   "id": 900029,
+   "id": 2454,
    "name": "DOOM",
    "slug": "doom",
    "released": "2016-05-13",
@@ -699,10 +727,11 @@
    "rating": 4.38,
    "ratings_count": 3400,
    "added": 10200,
-   "description": "Szybka strzelanka: Doom Slayer walczy z demonami w bazie na Marsie i w piekle."
+   "description": "Szybka strzelanka: Doom Slayer walczy z demonami w bazie na Marsie i w piekle.",
+   "background_image": "https://media.rawg.io/media/games/587/587588c64afbff80e6f444eb2e46f9da.jpg"
   },
   {
-   "id": 900030,
+   "id": 3272,
    "name": "Rocket League",
    "slug": "rocket-league",
    "released": "2015-07-07",
@@ -724,10 +753,11 @@
    "rating": 3.9,
    "ratings_count": 3283,
    "added": 9850,
-   "description": "Piłka nożna samochodami z napędem rakietowym. Krótkie mecze online."
+   "description": "Piłka nożna samochodami z napędem rakietowym. Krótkie mecze online.",
+   "background_image": "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg"
   },
   {
-   "id": 900031,
+   "id": 356714,
    "name": "Among Us",
    "slug": "among-us",
    "released": "2018-06-15",
@@ -745,13 +775,14 @@
    "rating": 3.6,
    "ratings_count": 3166,
    "added": 9500,
-   "description": "Gra towarzyska online: załoga statku szuka zdrajców, którzy sabotują misję."
+   "description": "Gra towarzyska online: załoga statku szuka zdrajców, którzy sabotują misję.",
+   "background_image": "https://media.rawg.io/media/games/e74/e74458058b35e01c1ae3feeb39a3f724.jpg"
   },
   {
-   "id": 900032,
-   "name": "Fortnite",
-   "slug": "fortnite",
-   "released": "2017-07-21",
+   "id": 47137,
+   "name": "Fortnite Battle Royale",
+   "slug": "fortnite-battle-royale",
+   "released": "2017-09-26",
    "metacritic": 81,
    "esrb_rating": "Teen",
    "genres": [
@@ -770,10 +801,11 @@
    "rating": 3.3,
    "ratings_count": 3050,
    "added": 9150,
-   "description": "Battle royale dla stu graczy z budowaniem konstrukcji i sezonowymi wydarzeniami."
+   "description": "Battle royale dla stu graczy z budowaniem konstrukcji i sezonowymi wydarzeniami.",
+   "background_image": "https://media.rawg.io/media/games/dcb/dcbb67f371a9a28ea38ffd73ee0f53f3.jpg"
   },
   {
-   "id": 900033,
+   "id": 290856,
    "name": "Apex Legends",
    "slug": "apex-legends",
    "released": "2019-02-04",
@@ -794,10 +826,11 @@
    "rating": 3.6,
    "ratings_count": 2933,
    "added": 8800,
-   "description": "Drużynowe battle royale w świecie Titanfalla z bohaterami o unikalnych umiejętnościach."
+   "description": "Drużynowe battle royale w świecie Titanfalla z bohaterami o unikalnych umiejętnościach.",
+   "background_image": "https://media.rawg.io/media/games/737/737ea5662211d2e0bbd6f5989189e4f1.jpg"
   },
   {
-   "id": 900034,
+   "id": 22508,
    "name": "Overwatch",
    "slug": "overwatch",
    "released": "2016-05-24",
@@ -816,10 +849,11 @@
    "rating": 3.9,
    "ratings_count": 2816,
    "added": 8450,
-   "description": "Drużynowa strzelanka z bohaterami o różnych rolach: tank, wsparcie, obrażenia."
+   "description": "Drużynowa strzelanka z bohaterami o różnych rolach: tank, wsparcie, obrażenia.",
+   "background_image": "https://media.rawg.io/media/games/4ea/4ea507ceebeabb43edbc09468f5aaac6.jpg"
   },
   {
-   "id": 900035,
+   "id": 10213,
    "name": "Dota 2",
    "slug": "dota-2",
    "released": "2013-07-09",
@@ -837,10 +871,11 @@
    "rating": 3.0,
    "ratings_count": 2700,
    "added": 8100,
-   "description": "Gra MOBA: dwie drużyny po pięciu bohaterów walczą o zniszczenie bazy przeciwnika."
+   "description": "Gra MOBA: dwie drużyny po pięciu bohaterów walczą o zniszczenie bazy przeciwnika.",
+   "background_image": "https://media.rawg.io/media/games/6fc/6fcf4cd3b17c288821388e6085bb0fc9.jpg"
   },
   {
-   "id": 900036,
+   "id": 766,
    "name": "Warframe",
    "slug": "warframe",
    "released": "2013-03-25",
@@ -860,10 +895,11 @@
    "rating": 3.4,
    "ratings_count": 2583,
    "added": 7750,
-   "description": "Kooperacyjna strzelanka akcji online o kosmicznych ninja Tenno."
+   "description": "Kooperacyjna strzelanka akcji online o kosmicznych ninja Tenno.",
+   "background_image": "https://media.rawg.io/media/games/f87/f87457e8347484033cb34cde6101d08d.jpg"
   },
   {
-   "id": 900037,
+   "id": 10142,
    "name": "PUBG: Battlegrounds",
    "slug": "pubg-battlegrounds",
    "released": "2017-12-21",
@@ -882,10 +918,11 @@
    "rating": 3.1,
    "ratings_count": 2466,
    "added": 7400,
-   "description": "Battle royale: sto osób ląduje na wyspie i walczy o przetrwanie do końca."
+   "description": "Battle royale: sto osób ląduje na wyspie i walczy o przetrwanie do końca.",
+   "background_image": "https://media.rawg.io/media/games/1bd/1bd2657b81eb0c99338120ad444b24ff.jpg"
   },
   {
-   "id": 900038,
+   "id": 10297,
    "name": "Sid Meier's Civilization VI",
    "slug": "sid-meier-s-civilization-vi",
    "released": "2016-10-21",
@@ -907,10 +944,11 @@
    "rating": 4.0,
    "ratings_count": 2350,
    "added": 7050,
-   "description": "Turowa strategia: rozwój cywilizacji od epoki kamienia po erę informacji."
+   "description": "Turowa strategia: rozwój cywilizacji od epoki kamienia po erę informacji.",
+   "background_image": "https://media.rawg.io/media/games/997/997ab4d67e96fb20a4092383477d4463.jpg"
   },
   {
-   "id": 900039,
+   "id": 10065,
    "name": "Cities: Skylines",
    "slug": "cities-skylines",
    "released": "2015-03-10",
@@ -931,10 +969,11 @@
    "rating": 4.1,
    "ratings_count": 2233,
    "added": 6700,
-   "description": "Symulator budowy miasta: drogi, strefy, transport publiczny i zarządzanie budżetem."
+   "description": "Symulator budowy miasta: drogi, strefy, transport publiczny i zarządzanie budżetem.",
+   "background_image": "https://media.rawg.io/media/games/25c/25c4776ab5723d5d735d8bf617ca12d9.jpg"
   },
   {
-   "id": 900040,
+   "id": 262382,
    "name": "Disco Elysium",
    "slug": "disco-elysium",
    "released": "2019-10-15",
@@ -957,10 +996,11 @@
    "rating": 4.4,
    "ratings_count": 2116,
    "added": 6350,
-   "description": "RPG detektywistyczne bez walki: detektyw z amnezją rozwiązuje sprawę morderstwa w mieście Revachol."
+   "description": "RPG detektywistyczne bez walki: detektyw z amnezją rozwiązuje sprawę morderstwa w mieście Revachol.",
+   "background_image": "https://media.rawg.io/media/games/840/8408ad3811289a6a5830cae60fb0b62a.jpg"
   },
   {
-   "id": 900041,
+   "id": 324997,
    "name": "Baldur's Gate 3",
    "slug": "baldur-s-gate-3",
    "released": "2023-08-03",
@@ -980,10 +1020,11 @@
    "rating": 4.6,
    "ratings_count": 2000,
    "added": 6000,
-   "description": "RPG w świecie Dungeons & Dragons z turową walką i ogromną swobodą wyborów."
+   "description": "RPG w świecie Dungeons & Dragons z turową walką i ogromną swobodą wyborów.",
+   "background_image": "https://media.rawg.io/media/games/699/69907ecf13f172e9e144069769c3be73.jpg"
   },
   {
-   "id": 900042,
+   "id": 906547,
    "name": "Hogwarts Legacy",
    "slug": "hogwarts-legacy",
    "released": "2023-02-10",
@@ -1005,10 +1046,11 @@
    "rating": 4.2,
    "ratings_count": 1883,
    "added": 5650,
-   "description": "RPG akcji w Hogwarcie w XIX wieku: nauka zaklęć i odkrywanie tajemnic szkoły."
+   "description": "RPG akcji w Hogwarcie w XIX wieku: nauka zaklęć i odkrywanie tajemnic szkoły.",
+   "background_image": "https://media.rawg.io/media/games/044/044b2ee023930ca138deda151f40c18c.jpg"
   },
   {
-   "id": 900043,
+   "id": 795632,
    "name": "Resident Evil 4",
    "slug": "resident-evil-4",
    "released": "2023-03-24",
@@ -1027,10 +1069,11 @@
    "rating": 4.4,
    "ratings_count": 1766,
    "added": 5300,
-   "description": "Remake klasycznego survival horroru: Leon Kennedy ratuje córkę prezydenta w wiosce w Hiszpanii."
+   "description": "Remake klasycznego survival horroru: Leon Kennedy ratuje córkę prezydenta w wiosce w Hiszpanii.",
+   "background_image": "https://media.rawg.io/media/games/51a/51a404b9918a0b19fc704a3ca248c69f.jpg"
   },
   {
-   "id": 900044,
+   "id": 58550,
    "name": "Ghost of Tsushima",
    "slug": "ghost-of-tsushima",
    "released": "2020-07-17",
@@ -1048,10 +1091,11 @@
    "rating": 4.5,
    "ratings_count": 1650,
    "added": 4950,
-   "description": "Samuraj Jin Sakai broni wyspy Cuszima przed inwazją Mongołów w 1274 roku."
+   "description": "Samuraj Jin Sakai broni wyspy Cuszima przed inwazją Mongołów w 1274 roku.",
+   "background_image": "https://media.rawg.io/media/games/f24/f2493ea338fe7bd3c7d73750a85a0959.jpeg"
   },
   {
-   "id": 900045,
+   "id": 278,
    "name": "Horizon Zero Dawn",
    "slug": "horizon-zero-dawn",
    "released": "2017-02-28",
@@ -1069,10 +1113,11 @@
    "rating": 4.3,
    "ratings_count": 1533,
    "added": 4600,
-   "description": "Łowczyni Aloy odkrywa tajemnicę świata, w którym ludzie żyją obok maszyn przypominających zwierzęta."
+   "description": "Łowczyni Aloy odkrywa tajemnicę świata, w którym ludzie żyją obok maszyn przypominających zwierzęta.",
+   "background_image": "https://media.rawg.io/media/games/b7d/b7d3f1715fa8381a4e780173a197a615.jpg"
   },
   {
-   "id": 900046,
+   "id": 50738,
    "name": "Death Stranding",
    "slug": "death-stranding",
    "released": "2019-11-08",
@@ -1090,10 +1135,11 @@
    "rating": 4.0,
    "ratings_count": 1416,
    "added": 4250,
-   "description": "Kurier Sam Porter Bridges łączy podzieloną Amerykę po tajemniczej katastrofie."
+   "description": "Kurier Sam Porter Bridges łączy podzieloną Amerykę po tajemniczej katastrofie.",
+   "background_image": "https://media.rawg.io/media/games/2ad/2ad87a4a69b1104f02435c14c5196095.jpg"
   },
   {
-   "id": 900047,
+   "id": 455597,
    "name": "It Takes Two",
    "slug": "it-takes-two",
    "released": "2021-03-26",
@@ -1115,10 +1161,11 @@
    "rating": 4.4,
    "ratings_count": 1300,
    "added": 3900,
-   "description": "Kooperacyjna przygoda dla dwóch graczy o parze zamienionej w lalki, która musi naprawić swój związek."
+   "description": "Kooperacyjna przygoda dla dwóch graczy o parze zamienionej w lalki, która musi naprawić swój związek.",
+   "background_image": "https://media.rawg.io/media/games/d47/d479582ed0a46496ad34f65c7099d7e5.jpg"
   },
   {
-   "id": 900048,
+   "id": 1450,
    "name": "Inside",
    "slug": "inside",
    "released": "2016-06-29",
@@ -1141,10 +1188,11 @@
    "rating": 4.3,
    "ratings_count": 1183,
    "added": 3550,
-   "description": "Mroczna platformówka logiczna o chłopcu uciekającym przed tajemniczą organizacją."
+   "description": "Mroczna platformówka logiczna o chłopcu uciekającym przed tajemniczą organizacją.",
+   "background_image": "https://media.rawg.io/media/games/d5a/d5a24f9f71315427fa6e966fdd98dfa6.jpg"
   },
   {
-   "id": 900049,
+   "id": 13627,
    "name": "Undertale",
    "slug": "undertale",
    "released": "2015-09-15",
@@ -1164,10 +1212,11 @@
    "rating": 4.3,
    "ratings_count": 1066,
    "added": 3200,
-   "description": "Nietypowe RPG, w którym nie trzeba nikogo zabijać. Dziecko spada do podziemnego świata potworów."
+   "description": "Nietypowe RPG, w którym nie trzeba nikogo zabijać. Dziecko spada do podziemnego świata potworów.",
+   "background_image": "https://media.rawg.io/media/games/ffe/ffed87105b14f5beff72ff44a7793fd5.jpg"
   },
   {
-   "id": 900050,
+   "id": 8488,
    "name": "Tom Clancy's Rainbow Six Siege",
    "slug": "tom-clancy-s-rainbow-six-siege",
    "released": "2015-12-01",
@@ -1187,7 +1236,8 @@
    "rating": 3.5,
    "ratings_count": 950,
    "added": 2850,
-   "description": "Taktyczna strzelanka drużynowa z niszczalnym otoczeniem i operatorami o specjalnych gadżetach."
+   "description": "Taktyczna strzelanka drużynowa z niszczalnym otoczeniem i operatorami o specjalnych gadżetach.",
+   "background_image": "https://media.rawg.io/media/games/b34/b3419c2706f8f8dbe40d08e23642ad06.jpg"
   }
  ]
 }
