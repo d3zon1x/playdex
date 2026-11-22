@@ -10,9 +10,9 @@ class Settings(BaseSettings):
     cors_origins: str = "http://localhost:5173"
     rawg_api_key: str = ""
     rawg_base_url: str = "https://api.rawg.io/api"
-    # RAWG nie odpowiada od ok. 10.11.2026 — do czasu naprawy katalog działa na danych
-    # przykładowych (app/data/mock_games.json). Ustaw RAWG_MOCK=false, gdy RAWG wróci.
-    rawg_mock: bool = True
+    # Tryb awaryjny: katalog z danych przykładowych (app/data/mock_games.json) zamiast RAWG.
+    # Przydaje się bez klucza RAWG albo gdy RAWG nie działa (tak było 10–21.11.2026).
+    rawg_mock: bool = False
 
     model_config = SettingsConfigDict(
         env_file=BASE_DIR / ".env",

@@ -32,10 +32,10 @@ help: ## Pokaż dostępne komendy
 # ---------------------------------------------------------------- konfiguracja
 
 env: $(ENV_FILE) frontend/.env ## Utwórz pliki .env z .env.example (nie nadpisuje)
-	@if grep -qiE '^RAWG_MOCK=(false|0)' $(ENV_FILE) && ! grep -qE '^RAWG_API_KEY=.+' $(ENV_FILE); then \
-		echo -e "\033[33m⚠  RAWG_MOCK=false, ale brak RAWG_API_KEY w $(ENV_FILE) — wyszukiwanie gier nie zadziała (klucz: https://rawg.io/apidocs)\033[0m"; \
-	elif ! grep -qiE '^RAWG_MOCK=(false|0)' $(ENV_FILE); then \
-		echo -e "\033[36mℹ  Katalog działa na danych przykładowych (RAWG_MOCK) — RAWG API nie odpowiada od ok. 10.11.2026.\033[0m"; \
+	@if grep -qiE '^RAWG_MOCK=(true|1)' $(ENV_FILE); then \
+		echo -e "\033[36mℹ  RAWG_MOCK=true — katalog działa na 50 przykładowych grach zamiast RAWG.\033[0m"; \
+	elif ! grep -qE '^RAWG_API_KEY=.+' $(ENV_FILE); then \
+		echo -e "\033[33m⚠  Brak RAWG_API_KEY w $(ENV_FILE) — wyszukiwanie gier nie zadziała (klucz: https://rawg.io/apidocs). Bez klucza ustaw RAWG_MOCK=true.\033[0m"; \
 	fi
 
 $(ENV_FILE):
