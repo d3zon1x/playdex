@@ -18,11 +18,11 @@ class LibraryCreate(BaseModel):
 
 class LibraryUpdate(BaseModel):
     status: LibraryStatus | None = None
-    user_rating: int | None = Field(default=None, ge=1, le=10)
+    user_rating: int | None = Field(default=None, ge=1, le=5)
 
 
 class LibraryRead(BaseModel):
     id: str
     status: LibraryStatus
-    user_rating: int | None = None
+    user_rating: int | None = Field(default=None, ge=1, le=5)
     game: GameRead

@@ -24,8 +24,8 @@ Każda funkcja jest opisana w osobnym Issue według wzoru *Co robi użytkownik /
 | Strona szczegółów gry (`/games/:id`) | [#6](https://github.com/d3zon1x/playdex/issues/6) | @d3zon1x | ✅ zrobione |
 | Konta użytkowników (rejestracja, logowanie, wiek w profilu) | [#7](https://github.com/d3zon1x/playdex/issues/7) | @d3zon1x | ⏳ M2 |
 | Wyróżnione gry (panel administratora) | [#8](https://github.com/d3zon1x/playdex/issues/8) | @d3zon1x | ⏳ M2/M3 |
-| Biblioteka ze statusami „Do zagrania” / „W trakcie” / „Ukończone” | [#9](https://github.com/d3zon1x/playdex/issues/9) | @stilist1 | 🔧 w trakcie |
-| Własne oceny gier (1–5) | [#10](https://github.com/d3zon1x/playdex/issues/10) | @stilist1 | 🔧 w trakcie |
+| Biblioteka ze statusami „Do zagrania” / „W trakcie” / „Ukończone” | [#9](https://github.com/d3zon1x/playdex/issues/9) | @stilist1 | ✅ zrobione |
+| Własne oceny gier (1–5) | [#10](https://github.com/d3zon1x/playdex/issues/10) | @stilist1 | ✅ zrobione |
 | Filtr wieku (ESRB → wiek) | [#11](https://github.com/d3zon1x/playdex/issues/11) | @stilist1 | ⏳ M2 |
 | Osiągnięcia *(opcjonalnie)* | [#12](https://github.com/d3zon1x/playdex/issues/12) | @stilist1 | ⏳ M3 |
 

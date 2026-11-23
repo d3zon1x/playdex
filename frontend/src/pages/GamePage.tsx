@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { ErrorState } from '../components/ErrorState'
 import { NotFound } from '../components/NotFound'
 import { GameDetailSkeleton } from '../components/Skeleton'
+import { StarRating } from '../components/StarRating'
 import { useGame } from '../hooks/useGames'
 import { useLibraryMembership } from '../hooks/useLibraryMembership'
 import { apiErrorMessage, isNotFoundError } from '../lib/api'
@@ -22,8 +23,10 @@ export function GamePage() {
     return <NotFound {...gameNotFound} />
   }
 
-  const inLibrary = membership.ids.has(rawgId)
+  const entry = membership.byGameId.get(rawgId)
+  const inLibrary = entry != null
   const pending = membership.add.isPending && membership.add.variables === rawgId
+  const ratingPending = membership.update.isPending && membership.update.variables?.id === entry?.id
 
   return (
     <section>
@@ -84,6 +87,21 @@ export function GamePage() {
               <p className="mt-3 text-sm text-rose-300">
                 {apiErrorMessage(membership.add.error, 'Nie udało się dodać gry do biblioteki.')}
               </p>
+            )}
+            {entry && (
+              <div className="mt-4">
+                <p className="mb-1 text-sm text-slate-400">Twoja ocena</p>
+                <StarRating
+                  value={entry.user_rating}
+                  disabled={ratingPending}
+                  onChange={(rating) => membership.update.mutate({ id: entry.id, body: { user_rating: rating } })}
+                />
+                {membership.update.isError && (
+                  <p className="mt-2 text-sm text-rose-300">
+                    {apiErrorMessage(membership.update.error, 'Nie udało się zapisać oceny.')}
+                  </p>
+                )}
+              </div>
             )}
             <p className="mt-6 max-w-3xl whitespace-pre-line leading-relaxed text-slate-300">
               {game.data.description || 'Brak opisu.'}
