@@ -106,6 +106,17 @@ def _to_read(entry: dict, game: dict) -> LibraryRead:
     return LibraryRead(
         id=str(entry["_id"]),
         status=entry["status"],
-        user_rating=entry.get("user_rating"),
+        user_rating=_normalize_rating(entry.get("user_rating")),
         game=GameRead.model_validate(public_game(game)),
     )
+
+
+def _normalize_rating(value: object) -> int | None:
+    """Return a 1–5 rating. Older rows used 1–10 and are folded onto the new scale."""
+    if isinstance(value, bool) or not isinstance(value, int):
+        return None
+    if value < 1:
+        return None
+    if value <= 5:
+        return value
+    return min(5, (value + 1) // 2)

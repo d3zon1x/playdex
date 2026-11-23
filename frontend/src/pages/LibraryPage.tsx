@@ -1,58 +1,77 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useMemo } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import { ErrorState } from '../components/ErrorState'
 import { LibraryListSkeleton } from '../components/Skeleton'
+import { StarRating } from '../components/StarRating'
+import { useLibraryMembership } from '../hooks/useLibraryMembership'
 import { apiErrorMessage } from '../lib/api'
-import { fetchLibrary, removeFromLibrary, updateLibraryEntry } from '../lib/games'
 import {
   isLibraryStatus,
   libraryStatusLabels,
   libraryStatuses,
+  type LibraryEntry,
   type LibraryStatus,
 } from '../lib/types'
 
-const ratings = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
 export function LibraryPage() {
-  const [status, setStatus] = useState<LibraryStatus | 'all'>('all')
-  const queryClient = useQueryClient()
-  const library = useQuery({
-    queryKey: ['library', status],
-    queryFn: () => fetchLibrary(status === 'all' ? undefined : status),
-  })
+  const [params, setParams] = useSearchParams()
+  const rawStatus = params.get('status')
+  const status: LibraryStatus | 'all' = rawStatus && isLibraryStatus(rawStatus) ? rawStatus : 'all'
+  const membership = useLibraryMembership()
+  const { library, update, remove, entries } = membership
 
-  const update = useMutation({
-    mutationFn: ({
-      id,
-      body,
-    }: {
-      id: string
-      body: { status?: LibraryStatus; user_rating?: number | null }
-    }) => updateLibraryEntry(id, body),
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['library'] })
-    },
-  })
+  const counts = useMemo(() => {
+    const next: Record<LibraryStatus | 'all', number> = {
+      all: entries.length,
+      backlog: 0,
+      playing: 0,
+      completed: 0,
+    }
+    for (const entry of entries) next[entry.status] += 1
+    return next
+  }, [entries])
 
-  const remove = useMutation({
-    mutationFn: removeFromLibrary,
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['library'] })
-    },
-  })
+  const visible = status === 'all' ? entries : entries.filter((entry) => entry.status === status)
+  const average = useMemo(() => averageRating(entries), [entries])
+
+  const setStatus = (next: LibraryStatus | 'all') => {
+    setParams(
+      (current) => {
+        const updated = new URLSearchParams(current)
+        if (next === 'all') updated.delete('status')
+        else updated.set('status', next)
+        return updated
+      },
+      { replace: false },
+    )
+  }
 
   return (
     <section>
       <h1 className="text-3xl font-semibold tracking-tight">Biblioteka</h1>
       <p className="mt-2 text-slate-400">Twoje kolekcje gier.</p>
+      {library.isSuccess && (
+        <p className="mt-2 text-sm text-slate-300">
+          {average == null
+            ? 'Brak własnych ocen.'
+            : `Średnia własna ocena: ${average.toLocaleString('pl-PL', {
+                minimumFractionDigits: 1,
+                maximumFractionDigits: 1,
+              })}`}
+        </p>
+      )}
 
       <div className="mt-6 flex flex-wrap gap-2">
-        <FilterButton active={status === 'all'} onClick={() => setStatus('all')}>
+        <FilterButton active={status === 'all'} count={library.isSuccess ? counts.all : null} onClick={() => setStatus('all')}>
           Wszystkie
         </FilterButton>
         {libraryStatuses.map((value) => (
-          <FilterButton key={value} active={status === value} onClick={() => setStatus(value)}>
+          <FilterButton
+            key={value}
+            active={status === value}
+            count={library.isSuccess ? counts[value] : null}
+            onClick={() => setStatus(value)}
+          >
             {libraryStatusLabels[value]}
           </FilterButton>
         ))}
@@ -61,6 +80,11 @@ export function LibraryPage() {
       {update.isError && (
         <p className="mt-4 text-rose-300">
           {apiErrorMessage(update.error, 'Nie udało się zapisać zmian.')}
+        </p>
+      )}
+      {remove.isError && (
+        <p className="mt-4 text-rose-300">
+          {apiErrorMessage(remove.error, 'Nie udało się usunąć gry z biblioteki.')}
         </p>
       )}
 
@@ -73,16 +97,16 @@ export function LibraryPage() {
             onRetry={() => void library.refetch()}
           />
         )}
-        {library.isSuccess && library.data.length === 0 && (
+        {library.isSuccess && visible.length === 0 && (
           <p className="text-slate-300">
             {status === 'all'
               ? 'Nie masz jeszcze żadnych gier. Wyszukaj tytuł i dodaj go do kolekcji.'
               : 'Brak gier z tym statusem.'}
           </p>
         )}
-        {library.isSuccess && library.data.length > 0 && (
+        {library.isSuccess && visible.length > 0 && (
           <ul className="space-y-4">
-            {library.data.map((entry) => {
+            {visible.map((entry) => {
               const busy =
                 (update.isPending && update.variables?.id === entry.id) ||
                 (remove.isPending && remove.variables === entry.id)
@@ -112,7 +136,7 @@ export function LibraryPage() {
                       {libraryStatusLabels[entry.status]}
                       {entry.game.released ? ` · ${entry.game.released.slice(0, 4)}` : ''}
                     </p>
-                    <div className="mt-4 flex flex-wrap items-center gap-2">
+                    <div className="mt-4 flex flex-wrap items-center gap-3">
                       <label className="text-sm text-slate-400" htmlFor={`status-${entry.id}`}>
                         Status
                       </label>
@@ -133,29 +157,12 @@ export function LibraryPage() {
                           </option>
                         ))}
                       </select>
-                      <label className="text-sm text-slate-400" htmlFor={`rating-${entry.id}`}>
-                        Ocena
-                      </label>
-                      <select
-                        id={`rating-${entry.id}`}
-                        className="rounded-lg border border-white/10 bg-slate-900 px-2 py-1.5 text-sm"
-                        value={entry.user_rating ?? ''}
+                      <span className="text-sm text-slate-400">Ocena</span>
+                      <StarRating
+                        value={entry.user_rating}
                         disabled={busy}
-                        onChange={(event) => {
-                          const value = event.target.value
-                          update.mutate({
-                            id: entry.id,
-                            body: { user_rating: value ? Number(value) : null },
-                          })
-                        }}
-                      >
-                        <option value="">Brak</option>
-                        {ratings.map((rating) => (
-                          <option key={rating} value={rating}>
-                            {rating}
-                          </option>
-                        ))}
-                      </select>
+                        onChange={(rating) => update.mutate({ id: entry.id, body: { user_rating: rating } })}
+                      />
                       <button
                         type="button"
                         className="rounded-full border border-white/10 px-3 py-1.5 text-sm text-slate-300 hover:text-white disabled:text-slate-600"
@@ -180,12 +187,20 @@ export function LibraryPage() {
   )
 }
 
+function averageRating(entries: LibraryEntry[]) {
+  const ratings = entries.flatMap((entry) => (entry.user_rating == null ? [] : [entry.user_rating]))
+  if (ratings.length === 0) return null
+  return ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length
+}
+
 function FilterButton({
   active,
+  count,
   onClick,
   children,
 }: {
   active: boolean
+  count: number | null
   onClick: () => void
   children: string
 }) {
@@ -200,6 +215,7 @@ function FilterButton({
       }
     >
       {children}
+      {count == null ? '' : ` (${count})`}
     </button>
   )
 }
